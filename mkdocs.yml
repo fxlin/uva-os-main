@@ -1,0 +1,40 @@
+site_name: cs4414-main
+
+theme:
+  name: material
+  #name: mkdocs
+  # custom_dir: material
+
+  # 404 page
+  static_templates:
+  - 404.html
+    
+  navigation_depth: 1
+  
+  # Don't include MkDocs' JavaScript
+  include_search_page: true
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    # - navigation.instant
+    # - navigation.sections
+    - navigation.tabs
+  palette:
+    scheme: default
+    primary: deep purple
+    accent: deep purple
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+plugins:
+  - search
+#  - git-revision-date-localized
+
+nav:
+  - Syllabus: README.md
