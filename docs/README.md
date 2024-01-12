@@ -43,11 +43,13 @@ Most of your time (like >80%) will be spent on four projects.
 * Each project has one or more assignments. Each assignment may have a different weight.
 * We will provide a calculator (an excel file, downloadable from the LMS (learning management system), “Files”), which can calculate your total raw points
 
-### (Late) submissions
+### Submissions
 
 Submissions are done via the UVA LMS. Submission will be closed after the deadline. 
 
-Once the submission is closed, do NOT email the instructor or the TAs. Such emails will be automatically ignored. 
+**Repeated submissions.** Before the deadline, submit as many times as you like. Earlier submissions will be overwritten. 
+
+**Late submissions.** Once the submission is closed, do NOT email the instructor or the TAs. Such emails will be automatically ignored. 
 
 All submissions are due **at 5pm**. **NOT the midnight**. 
 
