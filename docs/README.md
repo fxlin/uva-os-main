@@ -2,12 +2,6 @@
 
 Last updated: January 10, 2024
 
-Notes: 
-
-**Should link to multiple pages.** 
-
-Inform students: servers may crash at any time. Save files 
-
 ## LOGISTICS
 
 ### Meetings
@@ -79,6 +73,16 @@ We expect a student to participate in some of the above activities (not necessar
 ### How I determine the final grades 
 
 https://fxlin.github.io/final-grades.pdf
+
+## SERVERS 
+
+For projects, students are encouraged to use the CS departmental servers. We will provide detailed access instructions and technical support throughout. They are recommended. They are NOT mandatory. You can use, e.g. your own machines or AWS; but we do NOT provide technical support for anything other the CS servers. 
+
+**Back up your code regularly**. Like, every hour. **Back up to multiple places** including cloud storage your local machines. This is because you may accidentally delete your code, the servers may crash, disks may malfunction, etc. Always assume that the storage is unreliable. 
+
+**Your processes may be killed; the servers may be rebooted.** This happened previously when some students (or their VSCode extensions) run too many processes. When that happens, servers will be super slow and non usable. We will have to manually kill processes and/or reboot the servers. Before that, we will give everyone **10 minutes** ahead of time notice via LMS announcement. 
+
+**It is the students' responsibility to keep their code safe, not the instructor.** 
 
 ## PIAZZA 
 
