@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # CS4414 Syllabus
 
 Last updated: January 2024
