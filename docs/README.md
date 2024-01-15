@@ -23,6 +23,10 @@ OS is supposed to be difficult otherwise I'm not doing my job. You need to:
 * Understand code details. 
 * Manage setback, emotion, and frustration. 
 
+**Q:** **I have no idea what is going on with assignment X. Help!**
+
+Have you read the project description and tinkered with the code? Instead of having a vague complaint, please state something concrete such as : "I understand A. I think B means ... and did some experiments. But I do not know how to get C work. Please help." Then bring that to Piazza/OH. 
+
 **Q: my code does not work. help!** 
 
 As the course goes on, some students will start directly throwing problems to instructors, expecting for answers. Example: "my program does not work and here is the error message. What should I do?" This is unacceptable. It's one thing that you attempted and sought for help; it's another thing "my code breaks, what to do". 
@@ -34,6 +38,10 @@ Once again, let me warn everybody there will be a lot of hacking, setbacks, and 
 **Q: Why am I spending all time on code details, instead of learning OS concepts?**
 
 I hope you attend every lecture, where we teach OS concepts. But if details prevent you from seeing the big picture, you are not spending enough time to master them. 
+
+**Q: why are some lecture contents unrelated to projects?** 
+
+Lecture contents are a superset of the knowledge needed for the projects. Projects can only cover a small fraction of OS contents that students should know. We don't have enough time. 
 
 ## LOGISTICS
 
@@ -65,18 +73,19 @@ Location: Rice 442
 
 ### Projects
 
-Most of your time (like >80%) will be spent on four projects.
+Most of your time (like >80%) will be spent on four projects. 
 
-| **Project**     | Weights | **You will  build ...**                             | **Learning  objectives**                                     |
-| --------------- | ------- | --------------------------------------------------- | ------------------------------------------------------------ |
-| p1: kernel      | 40      | A tiny, modern kernel for Raspberry Pi 3            | Roll-your-own kernel, baremetal programming, Armv8, SoC hardware |
-| p2: concurrency | 20      | Scaling up data structures on multicores            | Programming  a large number of cores, profiling, performance debugging |
-| p3: TEE         | 25      | A machine learning service secured by Arm TrustZone | Security, hardware-based isolation, embedded  AI             |
-| p4:persistence  | 10      | Filesystem image forensics                          | Reverse engineering, binary data structures, working with filesystems |
-| Participation   | 5       |                                                     |                                                              |
+Each project has one or more assignments. Each assignment may have a different weight.
 
-* Each project has one or more assignments. Each assignment may have a different weight.
-* We will provide a calculator (an excel file, downloadable from the LMS (learning management system), “Files”), which can calculate your total raw points
+| **Project**     | Weights      | **You will  build ...**                             | **Learning  objectives**                                     |
+| --------------- | ------------ | --------------------------------------------------- | ------------------------------------------------------------ |
+| p1: kernel      | 40           | A tiny, modern kernel for Raspberry Pi 3            | Roll-your-own kernel, baremetal programming, Armv8, SoC hardware |
+| p2: concurrency | 20           | Scaling up data structures on multicores            | Programming  a large number of cores, profiling, performance debugging |
+| p3: TEE         | 25+(bonus)10 | A machine learning service secured by Arm TrustZone | Security, hardware-based isolation, embedded  AI             |
+| p4:persistence  | 10           | Filesystem image forensics                          | Reverse engineering, binary data structures, working with filesystems |
+| Participation   | 5            |                                                     |                                                              |
+
+* Online grade calculator ([Google spreadsheet](https://docs.google.com/spreadsheets/d/1doYDjdvm1ccOND-cSXbZeZLtoZE3PNCQ/edit?usp=sharing&ouid=104745841715797938930&rtpof=true&sd=true)). 
 
 ### Submissions
 
