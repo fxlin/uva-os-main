@@ -23,8 +23,8 @@ theme:
     - navigation.tabs
   palette:
     scheme: default
-    primary: deep purple
-    accent: deep purple
+    primary: deep red
+    accent: deep red
   font:
     text: Roboto
     code: Roboto Mono
@@ -34,7 +34,7 @@ theme:
 
 plugins:
   - search
-#  - git-revision-date-localized
+  # - git-revision-date-localized   # displaying the date of the last git modification of a page (require installation. will fail github workflow)
 
 nav:
   - Syllabus: README.md

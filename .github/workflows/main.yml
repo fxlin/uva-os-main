@@ -2,7 +2,7 @@ name: mkdocs gh-deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Deploy docs
+      - name: Do deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
