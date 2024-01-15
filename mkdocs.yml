@@ -38,3 +38,4 @@ plugins:
 
 nav:
   - Syllabus: README.md
+  - FAQ: faq.md
