@@ -2,7 +2,7 @@ name: mkdocs gh-deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
