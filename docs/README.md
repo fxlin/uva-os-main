@@ -22,6 +22,7 @@ Zoom/recordings will be available
 
 * Wonkyo Choe (PhD student) 			bfr4xr@virginia.edu
 * Rongxiang Wang (PhD student) 			waq9hw@virginia.edu
+* Akhil Shekar (PhD student)     as8hu@virginia.edu
 
 **Office hours:**
 Mon  4-5p           
