@@ -25,10 +25,13 @@ Zoom/recordings will be available
 * Akhil Shekar (PhD student)     as8hu@virginia.edu
 
 **Office hours:**
-Mon  4-5p           
-Tue   1030-1130a          
-Thu  330-430p            
+
 Location: Rice 442
+
+* Mon   11-12p           
+* Tue   1030-1130a          
+* Thu  330-430p            
+
 
 * The TAs will: answer questions; give suggestions on your code; offer debugging pointers
 * The TAs will not: write or debug your code for you 
