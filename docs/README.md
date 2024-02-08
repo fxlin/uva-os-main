@@ -29,7 +29,7 @@ Zoom/recordings will be available
 Location: Rice 442
 
 * Mon   11-12p           
-* Tue   1030-1130a          
+* Tue   10-11a          
 * Thu  330-430p            
 
 
