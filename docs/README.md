@@ -78,6 +78,7 @@ To accommodate students':
 career development, health issues, family and/or personal emergency, busy study and life schedule, non-UVA network failures, non-UVA power outage, broken laptops, accidental loss of code, misread of the deadlines, forgetting to submit, forgetting passwords, unable to use the LMS while others can, unable to compress/upload the code, unable to use diff, unable to create a tarball, as well as other unexpected life events, we have the following policy: 
 
 **At the end of the semester, the two assignments (NOT projects) with lowest scores will be automatically dropped.** 
+That is: remove the lowest two assignments; scale the scores of the remaining assignments to the total project weights for the whole semester (e.g. 95% as above).
 
 No additional requests are needed. 
 
