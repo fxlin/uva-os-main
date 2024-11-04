@@ -6,6 +6,12 @@ Last updated: Nov 2024
 
 **Note: this is a new cs4414**. As the UVA CS department completes the migration to the new undergraduate curriculum, this course has been redesigned accordingly. It is different from my previous offerings of CS4414 (up to Spring 2024), which you can see [here](syllabus-24sp.md).
 
+## SCHEDULE 
+
+(as of 11/4/24: tentative, subject to change)
+
+![alt text](schedule.png)
+
 ## PREREQUISTES
 This course assumes the following prerequisites:
 
@@ -24,7 +30,9 @@ This course assumes the following prerequisites:
     - User-level synchronization, TLB toy application (emulated), pthreads, dining philosophers problem
     - Application: "Life" emulation
 
-Any incoming students should understand the above contents. Exemptions may be granted on a case-by-case basis (especially for graduate students who have not taken UVA undergraduate courses). However, students must understand the risks and that they need to spend a significant amount of time to catch up.
+### Important Note for Incoming Students
+
+All incoming students should thoroughly understand the above contents. Exemptions may be granted on a case-by-case basis, particularly for graduate students who have not taken UVA undergraduate courses. However, students must be aware of the risks and be prepared to invest a significant amount of time to catch up.
 
 ## ATTITUDE
 
