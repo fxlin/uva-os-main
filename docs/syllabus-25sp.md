@@ -104,13 +104,7 @@ Most of your time (like >80%) will be spent on four projects.
 
 Each project has one or more assignments. Each assignment may have a different weight.
 
-
-
 * Online grade calculator ([Google spreadsheet](https://docs.google.com/spreadsheets/d/1doYDjdvm1ccOND-cSXbZeZLtoZE3PNCQ/edit?usp=sharing&ouid=104745841715797938930&rtpof=true&sd=true)). 
-
-
-
-
 
 ## Needed Equipment
 
