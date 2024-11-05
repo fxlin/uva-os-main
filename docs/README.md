@@ -44,8 +44,7 @@ We provide five OS versions: each is functional, but increasingly more "modern".
 
 World 5 demo (with sound):
 
-<video controls src="good-4mairo-doom-nplayer-scr.mp4" title="Title"></video>
-
+https://github.com/user-attachments/assets/6cf05a8e-84f1-4d20-8b01-3e8bcade7cd1
 
 ## Emulator or real hardware? 
 All the code and quests can run on both the emulator (QEMU) and real hardware (Raspberry Pi 3, or rpi3). 
