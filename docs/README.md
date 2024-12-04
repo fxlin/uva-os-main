@@ -9,9 +9,9 @@
 
 ### UVA students: see [syllabus for CS4414/6456, Spring 2025](syllabus-25sp.md)
 
-![alt text](collage-ordered.jpg)
-
 ## OVERVIEW
+
+![collage](collage-ordered.jpg)
 
 This course is a "guided tour". In one semester, it takes students, who have basic knowledge of the computer software/hardware stack, on the journey of building a modern operating system.
 
