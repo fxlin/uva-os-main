@@ -32,7 +32,7 @@ This course will start from bare-metal hardware ("boot") and incrementally build
 We provide five OS versions: each is functional, but increasingly more "modern". The class assignments (called "quests") will involve completing key features in these OS versions, enabling more applications to run.
 
 **Proto 1: Baremetal**  
-    A single CPU core can boot, print messages from UART, and display pixels. Interrupts work, enabling periodic rendering of a simple "donut" animation. Everything runs in privileged mode (EL1).
+    A single CPU core can boot, print messages from UART, and display pixels. Interrupts work, allowing periodic rendering of a simple "donut" animation. Everything runs in privileged mode (EL1).
 
 <!-- ✅ UART/printf ✅ Timers (&multiplexing) ✅ Interrupts ✅ Framebuffer & animation -->
 
@@ -60,7 +60,8 @@ We provide five OS versions: each is functional, but increasingly more "modern".
 ![alt text](Slide5.PNG)
 
 **Proto 4: Simple User**  
-    The OS now includes file abstraction and file systems. Userspace is built independently of the kernel and executed via `exec()`. The OS implements more I/O drivers, notably USB keyboard and sound device, exposing them via `/proc` and `/dev` to userspace. Userspace comprises a simplified libc and applications including Mario, slider, shell, and a sound tester.
+    The OS now includes file abstraction and file systems. Userspace is built independently of the kernel and executed via `exec()`. The OS implements more I/O drivers, 
+    notably for USB keyboards and a sound device, exposing them via `/proc` and `/dev` to userspace. Userspace comprises a simplified libc and applications including Mario, slider, shell, and a sound tester.
 
 <!-- ✅ File abstractions
 ✅ A filesystem (xv6)
@@ -73,7 +74,7 @@ We provide five OS versions: each is functional, but increasingly more "modern".
 ![alt text](Slide7.PNG)
 
 **Proto 5: Rich User**  
-    The OS now boots on multicore (four in rpi3). It includes a FAT32 filesystem and an SD driver, allowing file exchange with PC or Mac. It also includes a "SurfaceFlinger," allowing multiple apps to render on the screen and dispatching input events to the correct app. Userspace is more complete, including a full libc, as well as DOOM (a 3D game), a music player, and a blockchain miner.
+    The OS now boots on multicore (four in rpi3). It includes a FAT32 filesystem and an SD driver, allowing file exchange with PC or Mac. It also includes a "SurfaceFlinger," allowing multiple apps to render on the screen and dispatching input events to the correct app. Userspace is more complete, including a full libc, as well as DOOM (a 3D game), a music player, a blockchain miner, etc.
 <!-- 
 ✅ libc (newlib)
 ✅ SD card
@@ -95,7 +96,7 @@ https://github.com/user-attachments/assets/6cf05a8e-84f1-4d20-8b01-3e8bcade7cd1
 
 ## Emulator or real hardware? 
 All the code and quests can run on both the emulator (QEMU) and real hardware (Raspberry Pi 3, or rpi3). 
-The emulator simplifies debugging and speeds up iteration, while the rpi3 offers a more authentic OS experience. 
+Using emulator simplifies debugging, while the rpi3 offers a more authentic OS experience. 
 
 ## ACKNOWLEDGEMENT
 
