@@ -15,11 +15,11 @@
 
 This course is a "guided tour". In one semester, it takes students, who have basic knowledge of the computer software/hardware stack, on the journey of building a modern operating system.
 
-Building an OS can be a tough process, and this course is designed to give students continuous rewards -- both intellectually and emotionally -- just as video games or theme parks do.
+Building an OS can be a tough process, and this course is designed to give students continuous rewards -- both intellectually and emotionally -- just as a good video game or theme park would do.
 
 This course will start from bare-metal hardware ("boot") and incrementally build more features, enable more applications, and eventually run a full-fledged OS, which can run multiple applications ("DOOM") and on a multicore processor.
 
-## Five prototypes
+## Five labs, five prototypes
 
 | Prototypes       | Features                                                                 |
 |------------------|--------------------------------------------------------------------------|
@@ -29,7 +29,8 @@ This course will start from bare-metal hardware ("boot") and incrementally build
 | **Proto 4: Simple User**  | ✅ File abstractions ✅ A filesystem (xv6) ✅ procfs, devfs ✅ More syscalls: fork/write/exec/sbrk/write ✅ USB keyboard ✅ Sound device |
 | **Proto 5: Rich User**    | ✅ libc (newlib) ✅ SD card ✅ FAT32 ✅ Raspberry Pi GAMEHAT ✅ DOOM ✅ Desktop ✅ Multicore |
 
-We provide five OS versions: each is functional, but increasingly more "modern". The class assignments (called "quests") will involve completing key features in these OS versions, enabling more applications to run.
+All OS prototypes are functional, albeit increasingly more "modern". 
+The class assignments (called "quests") will involve completing key features in these prototypes, enabling more applications to run.
 
 **Proto 1: Baremetal**  
     A single CPU core can boot, print messages from UART, and display pixels. Interrupts work, allowing periodic rendering of a simple "donut" animation. Everything runs in privileged mode (EL1).

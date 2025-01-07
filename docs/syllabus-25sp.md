@@ -2,7 +2,7 @@
 
 ### Syllabus for CS4414/6456 , Spring 2025
 
-Last updated: Dec 2024
+Last updated: 1/7/2025
 
 **Note: this is a new cs4414**. As the UVA CS department completes the migration to the new undergraduate curriculum, this course has been redesigned accordingly. It is different from my previous offerings of CS4414 (up to Spring 2024), which you can see [here](syllabus-24sp.md).
 
@@ -70,6 +70,23 @@ Location: Rice 442
 * The TAs will: answer questions; give suggestions on your code; offer debugging pointers
 * The TAs will not: write or debug your code for you 
 
+## Undergrad vs graduate students? (In case this course is crosslisted, e.g. 25sp)
+
+In addition to a submission per the lab description, a graduate student must submit:
+
+- a one-page writeup for each lab sumission, summarizing the key design decisions, challenges, and lessons learned.
+
+The writeup must be submitted as part of the submission. 
+
+The writeup constitutes 10% of the lab grade for graduate students. 
+
+## Work individually or as teams?
+
+Lab 1--3 are individual work. Lab 4--5 are team work.
+
+In principle, undergrads and grads shall NOT form a team (because they have different grading criteria).
+
+Exceptions to the above rules may be discussed with the instructors. 
 
 ## Emulator or real hardware? 
 
@@ -82,9 +99,6 @@ Students shall buy rpi3 ($35) at own expense. The instructor will provide all ot
 Assignments early in the semester can be done with full credits using QEMU. 
 Assignments later in the semester can be done with QEMU for partial credits, and with rpi3 for full credits.
 
-## Work individually or as teams?
-
-Lab 1--3 are individual work. Lab 4--5 are team work.
 
 ## Can I use GenAI? 
 
@@ -104,7 +118,7 @@ Therefore, the project descriptions often say "Use AI" to encourage its use. But
 ### Dev machines 
 
 Use your own computers. 
-Windows/Linux is preferred; Mac is fine but you need to run a virtual machine. 
+Windows/Linux is preferred; ~~Mac is fine but you need to run a virtual machine~~. 
 You can get a loaner Windows laptop from the CS IT, if needed. 
 
 ### Rpi3
