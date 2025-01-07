@@ -84,7 +84,8 @@ The writeup constitutes 10% of the lab grade for graduate students.
 
 Lab 1--3 are individual work. Lab 4--5 are team work.
 
-In principle, undergrads and grads shall NOT form a team (because they have different grading criteria).
+Each team: 2 students. 3-student teams are only approved as exceptions and will be held against a higher bar for grading. 
+Undergrads and grads shall NOT form a team (because they have different grading criteria).
 
 Exceptions to the above rules may be discussed with the instructors. 
 
@@ -98,10 +99,6 @@ Students shall buy rpi3 ($35) at own expense. The instructor will provide all ot
 
 Assignments early in the semester can be done with full credits using QEMU. 
 Assignments later in the semester can be done with QEMU for partial credits, and with rpi3 for full credits.
-
-## Work individually or as teams?
-
-Lab 1--3 are individual work. Lab 4--5 are team work. Each team: 2 students. 3-student teams are only approved as exceptions and will be held against a higher bar for grading. 
 
 ## Can I use GenAI? 
 
