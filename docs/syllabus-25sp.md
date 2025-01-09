@@ -6,13 +6,60 @@ Last updated: 1/7/2025
 
 **Note: this is a new cs4414**. As the UVA CS department completes the migration to the new undergraduate curriculum, this course has been redesigned accordingly. It is different from my previous offerings of CS4414 (up to Spring 2024), which you can see [here](syllabus-24sp.md).
 
+
+Special note on doubling counting CS4414/6456: 
+
+- It is OK: if you have taken my CS4414 prior to Spring 2025 and is taking CS6456 in Spring 2025. 
+The two courses are different enough. 
+
+- It is NOT OK: if you take my CS4414 as an undergraduate in Spring 2025 and take my CS6456 again in 2026/2027/2028 as a graduate student. 
+
+## Table of Contents
+
+- [SCHEDULE](#schedule)
+- [FIRST THINGS FIRST](#first-things-first)
+    - [Attitude](#attitude)
+    - [Prerequisite](#prerequisite)
+    - [Code safety](#code-safety)
+- [LOGISTICS](#logistics)
+    - [Instruction team](#instruction-team)
+    - [Requirements for graduate students?](#requirements-for-graduate-students)
+    - [Work individually or as teams?](#work-individually-or-as-teams)
+    - [Can I use GenAI?](#can-i-use-genai)
+    - [Textbook - None](#textbook---none)
+- [EQUIPMENT](#equipment)
+    - [Emulator or real hardware?](#emulator-or-real-hardware)
+    - [Dev machines](#dev-machines)
+    - [Rpi3](#rpi3)
+- [SUBMISSIONS](#submissions)
+- [GRADING](#grading)
+    - [How I measure participation](#how-i-measure-participation)
+    - [How I determine the final grades](#how-i-determine-the-final-grades)
+- [HELP!](#help)
+    - [Response time](#response-time)
+- [POLICIES](#policies)
+    - [Honor](#honor)
+    - [Whiteboard only collaboration](#whiteboard-only-collaboration)
+    - [Disabilities](#disabilities)
+    - [Your wellbeing](#your-wellbeing)
+    - [Diversity](#diversity)
+    - [Religious accommodations](#religious-accommodations)
+    - [Power-based personal violence](#power-based-personal-violence)
+
+
 ## SCHEDULE 
 
 (as of 12/23/24: tentative, subject to change)
 
 ![alt text](schedule.png)
 
-## PREREQUISTES
+## FIRST THINGS FIRST
+
+### Attitude
+Read this [FAQ](faq.md) before proceeding. 
+
+### Prerequisite
+
 This course assumes the following prerequisites:
 
 * **CS2130 (CSO1, [sample](https://researcher111.github.io/uva-cso1-F23-DG/)):**
@@ -30,13 +77,24 @@ This course assumes the following prerequisites:
     - User-level synchronization, TLB toy application (emulated), pthreads, dining philosophers problem
     - Application: "Life" emulation
 
-### Important Note for Incoming Students
+**Important Note for Incoming Students**
 
 All incoming students should thoroughly understand the above contents. Exemptions may be granted on a case-by-case basis, particularly for graduate students who have not taken UVA undergraduate courses. However, students must be aware of the risks and be prepared to invest a significant amount of time to catch up.
 
-## ATTITUDE
 
-Read this [FAQ](faq.md) before proceeding. 
+### Code safety 
+
+<u>
+It is the students' sole responsibility to keep their code safe. 
+Accidental loss of code is not an excuse for late submission.
+</u> 
+
+**Back up your code regularly**. Like, every hour. 
+
+**Back up to multiple places** including cloud storage your local machines. This is because you may accidentally delete your code, the servers may crash, disks may malfunction, etc. Always assume that the storage is unreliable. 
+
+**Know basic git commands**. Git is prerequisite of this course and modern software development. For instance, when told to do ``git pull'', be prepared to avoid or handle possible local conflicts. Do not blame anyone for conflicts. 
+
 
 ## LOGISTICS
 
@@ -70,7 +128,9 @@ Location: Rice 442
 * The TAs will: answer questions; give suggestions on your code; offer debugging pointers
 * The TAs will not: write or debug your code for you 
 
-## Undergrad vs graduate students? (In case this course is crosslisted, e.g. 25sp)
+### Requirements for graduate students? 
+
+This course may be crosslisted as CS6456. 
 
 In addition to a submission per the lab description, a graduate student must submit:
 
@@ -80,7 +140,8 @@ The writeup must be submitted as part of the submission.
 
 The writeup constitutes 10% of the lab grade for graduate students. 
 
-## Work individually or as teams?
+
+### Work individually or as teams?
 
 Lab 1--3 are individual work. Lab 4--5 are team work.
 
@@ -89,18 +150,7 @@ Undergrads and grads shall NOT form a team (because they have different grading 
 
 Exceptions to the above rules may be discussed with the instructors. 
 
-## Emulator or real hardware? 
-
-All the code can run on both the emulator (QEMU) and real hardware (Raspberry Pi 3, or rpi3).
-
-The expectation is that students will start with the emulator and gradually migrate to testing their code on both the emulator and real hardware.
-
-Students shall buy rpi3 ($35) at own expense. The instructor will provide all other needed accessories, on a need basis.
-
-Assignments early in the semester can be done with full credits using QEMU. 
-Assignments later in the semester can be done with QEMU for partial credits, and with rpi3 for full credits.
-
-## Can I use GenAI? 
+### Can I use GenAI? 
 
 Yes, the instructor believes that GenAI (such as ChatGPT and Copilot) is transforming how we write code and freeing us from memorizing low-level hardware/software details. Therefore:
 
@@ -113,7 +163,25 @@ ChatGPT is fantastic in explaining how to use these tools.
 
 Therefore, the project descriptions often say "Use AI" to encourage its use. But in general, you can use it in any way you find helpful.
 
-## Needed Equipment
+
+### Textbook - None
+
+There is no official textbook. If you insist on having one:
+Operating Systems: Three Easy Pieces, Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau 
+
+
+## EQUIPMENT
+
+## Emulator or real hardware? 
+
+All the code can run on both the emulator (QEMU) and real hardware (Raspberry Pi 3, or rpi3).
+
+The expectation is that students will start with the emulator and gradually migrate to testing their code on both the emulator and real hardware.
+
+Students shall buy rpi3 ($35) at own expense. The instructor will provide all other needed accessories, on a need basis.
+
+Assignments early in the semester can be done with full credits using QEMU. 
+Assignments later in the semester can be done with QEMU for partial credits, and with rpi3 for full credits.
 
 ### Dev machines 
 
@@ -133,11 +201,13 @@ We will provide all other needed accessories, on a need basis:
 - USB keyboard
 - Waveshare Game HAT for rpi3
 
-## Submissions
+## SUBMISSIONS
 
 Submissions are done via the UVA LMS. Submission will be closed after the deadline. 
 
 **Repeated submissions.** Before the deadline, submit as many times as you like. Earlier submissions will be overwritten. 
+
+Sumit often; submit early. 
 
 **Late submissions.** Once the submission deadline has passed: do NOT try to submit; do NOT email the instructor or the TAs. 
 Such emails will be automatically ignored. All submissions are due **at 5pm**. **NOT the midnight**. 
@@ -156,17 +226,18 @@ Such emails will be automatically ignored. All submissions are due **at 5pm**. *
 
 https://github.com/fxlin/uva-os-world1/blob/student/docs/submission.md
 
-### Accommodations
+## GRADING 
 
-To accommodate students': 
+| Component       | Percentage |
+|-----------------|-------------|
+| Lab 1           | 10%         |
+| Lab 2           | 15%         |
+| Lab 3           | 20%         |
+| Lab 4           | 25%         |
+| Lab 5           | 25%         |
+| Participation   | 5%          |
+| **Total**       | **100%**    |
 
-career development, health issues, family and/or personal emergency, busy study and life schedule, non-UVA network failures, non-UVA power outage, broken laptops, accidental loss of code, misread of the deadlines, forgetting to submit, forgetting passwords, unable to use the LMS while others can, unable to compress/upload the code, unable to use diff, unable to create a tarball, as well as other unexpected life events, we have the following policy: 
-
-**At the end of the semester, the two assignments (NOT projects) with the highest negative impact (considering both assignment scores and assignment weights) will be automatically dropped.** 
-
-Specifically, we remove such two assignments; scale the scores of the remaining assignments to the total project weights for the whole semester (e.g. 95% as above).
-
-No additional requests are needed. 
 
 ### How I measure participation
 The factors we consider include, but not limited to the following: 
@@ -181,25 +252,10 @@ We expect a student to participate in some of the above activities (not necessar
 
 https://fxlin.github.io/final-grades.pdf
 
-## CODE SAFETY
 
-<u>It is the students' SOLE responsibility to keep their code safe.</u> 
+## HELP!
 
-**Back up your code regularly**. Like, every hour. 
-
-**Back up to multiple places** including cloud storage your local machines. This is because you may accidentally delete your code, the servers may crash, disks may malfunction, etc. Always assume that the storage is unreliable. 
-
-**The servers may crash unexpectedly** and you may lose all your code/data. Of course we try out best not screw them up. But sometimes we make mistakes. Sometimes some incidents beyond our control happen. 
-
-**Know basic git commands**. Git is prerequisite of this course and modern software development. For instance, when told to do ``git pull'', be prepared to avoid or handle possible local conflicts. Do not blame anyone for conflicts. 
-
-If you fear that any git command may mess up your local code, you can always make a copy of the whole project directory and run the git commands on that copy. 
-
-## Online discussions
-
-Class link: https://piazza.com/virginia/spring2024/24spoperatingsystems/home
-
-Sign up: https://piazza.com/virginia/spring2024/24spoperatingsystems Code: 666666
+Use Piazza linked in the Canvas page. 
 
 ### Response time 
 
@@ -214,14 +270,7 @@ The response time is independent of any upcoming deadline.
 
 **Note:** Raise questions well before the deadlines. Do NOT expect a faster response just because it's right before the deadline. 
 
-## COURSE CONTENTS
-
-### Reading 
-
-There is no official textbook. If you insist on having one:
-Operating Systems: Three Easy Pieces, Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau 
-
-## **POLICIES** 
+## POLICIES
 
 ### Honor 
 
