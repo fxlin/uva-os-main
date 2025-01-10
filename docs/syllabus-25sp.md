@@ -81,6 +81,15 @@ This course assumes the following prerequisites:
 
 All incoming students should thoroughly understand the above contents. Exemptions may be granted on a case-by-case basis, particularly for graduate students who have not taken UVA undergraduate courses. However, students must be aware of the risks and be prepared to invest a significant amount of time to catch up.
 
+### Do not share your code publicly
+
+Keep your code to yourself; if it is a github repository, make it private. 
+
+This applies to the duration of the semester, and AFTER the semester. 
+
+Making the code public could ruin the experience of future students; it also compromises the instructor's effort on designing the quests. 
+
+PLEASE DO NOT SHARE YOUR CODE PUBLICLY!
 
 ### Code safety 
 
