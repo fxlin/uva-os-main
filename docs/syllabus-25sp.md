@@ -2,7 +2,7 @@
 
 ### Syllabus for CS4414/6456 , Spring 2025
 
-Last updated: 1/7/2025
+Last updated: Jan 2025
 
 **Note: this is a new cs4414**. As the UVA CS department completes the migration to the new undergraduate curriculum, this course has been redesigned accordingly. It is different from my previous offerings of CS4414 (up to Spring 2024), which you can see [here](syllabus-24sp.md).
 
