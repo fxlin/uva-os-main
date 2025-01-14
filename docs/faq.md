@@ -1,4 +1,4 @@
-# CS4414 - Have the right attitude
+# CS4414/6456 - Have the right attitude
 
 Updated: Jan 2025
 
