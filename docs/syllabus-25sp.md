@@ -195,7 +195,8 @@ Assignments later in the semester can be done with QEMU for partial credits, and
 ### Dev machines 
 
 Use your own computers. 
-Windows/Linux is preferred; ~~Mac is fine but you need to run a virtual machine~~. 
+Windows/Linux is preferred as they are our test platforms; Mac also work but may have technical issues. 
+The instruction team is committted to support Mac.
 You can get a loaner Windows laptop from the CS IT, if needed. 
 
 ### Rpi3
