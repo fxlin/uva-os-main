@@ -23,7 +23,7 @@ The two courses are different enough.
     - [Code safety](#code-safety)
 - [LOGISTICS](#logistics)
     - [Instruction team](#instruction-team)
-    - [Requirements for graduate students?](#requirements-for-graduate-students)
+    - [Requirements for CS6456 students?](#requirements-for-graduate-students)
     - [Work individually or as teams?](#work-individually-or-as-teams)
     - [Can I use GenAI?](#can-i-use-genai)
     - [Textbook - None](#textbook---none)
@@ -137,17 +137,17 @@ Location: Rice 442
 * The TAs will: answer questions; give suggestions on your code; offer debugging pointers
 * The TAs will not: write or debug your code for you 
 
-### Requirements for graduate students? 
+### Requirements for CS6456 students? 
 
 This course may be crosslisted as CS6456. 
 
-In addition to a submission per the lab description, a graduate student must submit:
+In addition to a submission per the lab description, a CS6456 student must submit:
 
 - a one-page writeup for each lab sumission, summarizing the key design decisions, challenges, and lessons learned.
 
 The writeup must be submitted as part of the submission. 
 
-The writeup constitutes 10% of the lab grade for graduate students. 
+The writeup constitutes 10% of the lab grade for CS6456 students. 
 
 
 ### Work individually or as teams?
@@ -155,7 +155,7 @@ The writeup constitutes 10% of the lab grade for graduate students.
 Lab 1--3 are individual work. Lab 4--5 are team work.
 
 Each team: 2 students. 3-student teams are only approved as exceptions and will be held against a higher bar for grading. 
-Undergrads and grads shall NOT form a team (because they have different grading criteria).
+CS4414 and CS6456 students shall NOT form a team (because they have different grading criteria).
 
 Exceptions to the above rules may be discussed with the instructors. 
 
