@@ -128,11 +128,10 @@ Zoom/recordings will be available
 
 Location: Rice 442
 
-* Mon   11-12p           
+* Mon   4-5p
 * Tue   10-11a
-* Thu   1030-1130a (starting from Feb 22nd)
-* Thu  330-430p            
-
+* Thu   2-3p 
+* Thu  4-5p            
 
 * The TAs will: answer questions; give suggestions on your code; offer debugging pointers
 * The TAs will not: write or debug your code for you 
