@@ -117,14 +117,14 @@ Zoom/recordings will be available
 
 * Prof. Felix Lin 				xl6yq@virginia.edu
 
-**TAs (tentative)** 
+**TAs (updated 1/15/25)** 
 
-* Wonkyo Choe (PhD student) 			bfr4xr@virginia.edu
-* Rongxiang Wang (PhD student) 			waq9hw@virginia.edu
-* Dahua Feng (PhD student)
+* Wonkyo Choe (PhD student) 			bfr4xr@
+* Rongxiang Wang (PhD student) 			waq9hw@
+* Afsara Benazir (PhD student)          hys4qm@
 
 
-**Office hours (tentative)**
+**Office hours (updated 1/15/25)**
 
 Location: Rice 442
 
