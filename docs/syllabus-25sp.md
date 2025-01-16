@@ -49,8 +49,6 @@ The two courses are different enough.
 
 ## SCHEDULE 
 
-(as of 12/23/24: tentative, subject to change)
-
 ![schedule-1 16 25](https://github.com/user-attachments/assets/14c49bd1-8865-4bc9-a260-8f652591b5b7)
 
 ## FIRST THINGS FIRST
