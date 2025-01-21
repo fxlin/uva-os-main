@@ -2,6 +2,8 @@ old/*
 site/*
 todel/*
 
+make-sd/UVA-OS/*
+
 backup/*
 src/*/build
 src/*/build-qemu
