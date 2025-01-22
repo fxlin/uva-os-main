@@ -26,7 +26,7 @@ are already provided. The partition will contain the kernel image to be built.
 
 ## Run the scripts
 
-1. Plug in the SD card to the computer. VM users: attach the SD card reader to the VM instance. 
+1. Plug in the SD card to the computer. VM users: further attach the SD card reader to the VM instance [How?](../docs/vm/vmware.md) 
 
 2. In Linux, use 'lsblk' to find the sd card device id, e.g. 
 ```

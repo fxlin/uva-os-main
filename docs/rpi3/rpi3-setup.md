@@ -53,6 +53,29 @@ We provide:
 - Waveshare GAME HAT (inc. battery; HDMI cable; 40pin header extender; speaker) 
 
 
+## Prepare for SD card 
+
+Connect the SD card reader to VM. Then in the VM: 
+```
+cd uva-os-main/make-sd/ 
+sudo ./make-sd.sh /dev/sdX
+```
+
+Details here: [How to prepare SD cards for experiments](../make-sd/README-make-sd.md)
+
+## Build and install the kernel 
+```
+cd uva-os-world1
+export PLAT=rpi3
+```
+
+| Action              | Command             |
+|---------------------|---------------------|
+| To clean up         | `./cleanall.sh`     |
+| To build everything | `./makeall.sh`      |
+
+If everything builds OK, `kernel/Makefile` should copy the kernel image (kernel8-rpi3.img) to the SD card, in the "bootfs" partition. See `kernel/Makefile` for details.
+
 ## Plug in the serial cable
 
 ```
