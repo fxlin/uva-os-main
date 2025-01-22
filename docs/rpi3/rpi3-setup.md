@@ -8,17 +8,18 @@ Students buy:
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
 | Rpi3 board (Model B or B+)          | Student     | [link](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)  |
 
-We provide: 
+
+Students check if they have the following items. If not, we will provide them as loaners.
 
 | Item                                | Needed for | Notes                                                                 |
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
-| USB-serial cable                    | Lab1 & later  | WSL2 users: SH-V09C5. VM users: legacy & cheap FTDI dongles                                                              |
-| 32GB micro SD card                  | Lab1 & later  | Students will load firmware                                               |
-| SD card reader                      | Lab1 & later  |                                                                       |
-| Portable display                    | Lab1 & later  | Comes with an HDMI cable & a USB-C cable. Student may need to use own USB-C power supply                            |
-| Power supply for Rpi3 (5v3A, with inline switch) | Lab1 & later   | Typical 5V1A USB-A port wont work -- no enough power for rpi3                                                            |
-| USB keyboard                        | Lab4 & later  |                                                                       |
-| Waveshare GAME HAT                         | Lab5+  |                                                             |
+| 1. A USB-UART dongle                    | Lab1 & later  | WSL2 users: SH-V09C5. VM users: legacy & cheap FTDI dongles                                                              |
+| 2. A micro SD card (>=16GB)                  | Lab1 & later  |                                                |
+| 3. A micro SD card reader that plugs in to personal computers                      | Lab1 & later  |                                                                       |
+| 4. A monitor or display that has an HDMI port; & an HDMI cable for it                     | Lab1 & later  | The loaner display comes with an HDMI cable & a USB-C cable. Student may need to their own USB-C power supply                            |
+| 5. A power supply for Rpi3 (Micro USB, at least 5v3A, with inline switch) | Lab1 & later   | Typical 5V1A USB-A port wont work -- no enough power for rpi3                                                            |
+| 6. USB keyboard                        | Lab4 & later  |                                                                       |
+| 7. Waveshare GAME HAT                         | Lab5+  |                                                             |
 | - Battery  (18650 lithium)                      |   | can be charged in place                                                             |
 | - HDMI cable                               |   |  for debugging with an external display                                                           |
 | - 40pin header extender, angled                    |   |   for debugging by exposing its UART port                                                           |
