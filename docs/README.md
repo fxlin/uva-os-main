@@ -8,8 +8,8 @@
 [PROTO5](https://github.com/fxlin/uva-os-world5) 
 
 - UVA students: syllabus for CS4414/6456, Spring 2025 [here](syllabus-25sp.md)
-- Set up the VM [here](docs/vm/vmware.md)
-- Set up the rpi3 hardware [here](docs/rpi3/rpi3-setup.md)
+- Set up the VM [here](vm/vmware.md)
+- Set up the rpi3 hardware [here](rpi3/rpi3-setup.md)
 
 
 ## OVERVIEW
