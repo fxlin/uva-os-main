@@ -9,7 +9,9 @@ Students buy:
 | Rpi3 board (Model B or B+)          | Student     | [link](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)  |
 
 
-Students check if they have the following items. If not, we will provide them as loaners.
+Students check if they have the following items. If not, we will provide them as loaners. 
+
+Hardware-kit pickup spreadsheet [link](https://myuva.sharepoint.com/:x:/s/XSEL-afsara-next/EdYnzYErdZ1AnqmaAjGY2_QBQWsVQ2lCzCud1rGTHytnIQ?e=k0St0w)
 
 | Item                                | Needed for | Notes                                                                 |
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
