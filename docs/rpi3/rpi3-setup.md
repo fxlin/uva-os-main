@@ -43,7 +43,7 @@ Hardware-kit pickup spreadsheet [link](https://myuva.sharepoint.com/:x:/s/XSEL-a
 
 > Some old adapters no longer works for WSL2 (Windows driver issues); however they still works for Linux/VM. 
 
-- A 32GB micro SD card preloaded with firmware
+- A 32GB micro SD card
 
 - A SD card reader
 
