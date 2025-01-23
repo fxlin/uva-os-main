@@ -18,7 +18,7 @@ Hardware-kit pickup spreadsheet [link](https://myuva.sharepoint.com/:x:/s/XSEL-a
 | 1. A USB-UART dongle                    | Lab1 & later  | WSL2 users: SH-V09C5. VM users: legacy & cheap FTDI dongles                                                              |
 | 2. A micro SD card (>=16GB)                  | Lab1 & later  |                                                |
 | 3. A micro SD card reader that plugs in to personal computers                      | Lab1 & later  |                                                                       |
-| 4. A monitor or display that has an HDMI port; & an HDMI cable for it                     | Lab1 & later  | The loaner display comes with an HDMI cable & a USB-C cable. Student may need to their own USB-C power supply                            |
+| 4. A monitor or display that has an HDMI port; & an HDMI cable for it                     | Lab1 & later  | The loaner display comes with an HDMI cable & a USB-C cable. Student may need to provide own USB-C power supply                            |
 | 5. A power supply for Rpi3 (Micro USB, at least 5v3A, with inline switch) | Lab1 & later   | Typical 5V1A USB-A port wont work -- no enough power for rpi3                                                            |
 | 6. USB keyboard                        | Lab4 & later  |                                                                       |
 | 7. Waveshare GAME HAT                         | Lab5+  |                                                             |
