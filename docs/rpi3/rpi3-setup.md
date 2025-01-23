@@ -64,7 +64,7 @@ cd uva-os-main/make-sd/
 sudo ./make-sd.sh /dev/sdX
 ```
 
-Details here: [How to prepare SD cards for experiments](../make-sd/README-make-sd.md)
+Details here: [How to prepare SD cards for experiments](../../make-sd/README-make-sd.md)
 
 ## Build and install the kernel 
 ```
