@@ -9,9 +9,12 @@ Students buy:
 | Rpi3 board (Model B or B+)          | Student     | [link](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)  |
 
 
-Students check if they have the following items. If not, we will provide them as loaners. 
-
-Hardware-kit pickup spreadsheet [link](https://myuva.sharepoint.com/:x:/s/XSEL-afsara-next/EdYnzYErdZ1AnqmaAjGY2_QBQWsVQ2lCzCud1rGTHytnIQ?e=k0St0w)
+Loaner instructions for students:
+1. students specify which of the following items are needed. NB: for lab1--3, only item 1--5 are in use.
+2. if you need item 1, specify: are you using WSL2 or VM
+4. contact: Afsara Benazir (TA) hys4qm@
+5. Hardware-kit pickup spreadsheet (mark AFTER the pickup) [link](https://myuva.sharepoint.com/:x:/s/XSEL-afsara-next/EdYnzYErdZ1AnqmaAjGY2_QBQWsVQ2lCzCud1rGTHytnIQ?e=k0St0w)
+6. keep any package and cables that come with items (esp item 4 the display), and return the item in its original package. 
 
 | Item                                | Needed for | Notes                                                                 |
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
