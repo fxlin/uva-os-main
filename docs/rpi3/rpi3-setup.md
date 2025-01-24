@@ -22,7 +22,7 @@ Loaner instructions for students:
 | 2. A micro SD card (>=16GB)                  | Lab1 & later  |                                                |
 | 3. A micro SD card reader that plugs in to personal computers                      | Lab1 & later  |                                                                       |
 | 4. A display w/ HDMI + an HDMI cable                     | Lab1 & later  | The loaner display comes with the needed HDMI-microHDMI cable & USB-C power supply   |
-| 5. A power supply for Rpi3 (Micro USB, at least 5v3A, with inline switch) | Lab1 & later   | Typical 5V1A USB-A port wont work -- no enough power for rpi3                                                            |
+| 5. A power supply for rpi3 (Micro USB, 5v3A, with inline switch) | Lab1 & later   | In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger). That should suffice for lab1/2 which do not draw high power. For later labs, better use 5v3A charger to provide enough power                                                            |
 | 6. USB keyboard                        | Lab4 & later  |                                                                       |
 | 7. Waveshare GAME HAT                         | Lab5+  |                                                             |
 | - Battery  (18650 lithium)                      |   | can be charged in place                                                             |

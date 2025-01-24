@@ -1,15 +1,17 @@
 # Operating Systems: From Boot to DOOM
 
 [OVERVIEW](https://github.com/fxlin/cs4414-main) |
-[PROTO1](https://github.com/fxlin/uva-os-world1) |
-[PROTO2](https://github.com/fxlin/uva-os-world2) |
-[PROTO3](https://github.com/fxlin/uva-os-world3) |
-[PROTO4](https://github.com/fxlin/uva-os-world4) |
-[PROTO5](https://github.com/fxlin/uva-os-world5) 
+[LAB1](https://github.com/fxlin/uva-os-world1) |
+[LAB2](https://github.com/fxlin/uva-os-world2) |
+[LAB3](https://github.com/fxlin/uva-os-world3) |
+[LAB4](https://github.com/fxlin/uva-os-world4) |
+[LAB5](https://github.com/fxlin/uva-os-world5) 
 
-- UVA students: syllabus for CS4414/6456, Spring 2025 [here](syllabus-25sp.md)
-- Set up the VM [here](vm/vmware.md)
-- Set up the rpi3 hardware [here](rpi3/rpi3-setup.md)
+## QUICK LINKS
+
+- [Syllabus for CS4414/6456, Spring 2025](syllabus-25sp.md)
+- [Set up the VM](vm/vmware.md)
+- [Set up the rpi3 hardware](rpi3/rpi3-setup.md)
 
 
 ## OVERVIEW
