@@ -12,6 +12,7 @@
 - [Syllabus for CS4414/6456, Spring 2025](syllabus-25sp.md)
 - [Set up the VM](vm/vmware.md)
 - [Set up the rpi3 hardware](rpi3/rpi3-setup.md)
+- [Prepare SD cards for experiments](../make-sd/README-make-sd.md)
 
 
 ## OVERVIEW
