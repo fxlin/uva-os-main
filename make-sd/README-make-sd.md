@@ -9,15 +9,16 @@ A sd card with capacity >=16GB
 ## Get files
 
 - bootfs/ contains the rpi3 firmware and configuration files, which are 
-are already provided. The partition will contain the kernel image to be built. 
+are already provided. The partition will contain the kernel image to be built. Get these files from this repository.
+
 - UVA-OS/ contains user data files (music, picture, game assets). They are to be provided by the user. 
-  - UVA students can download needed assets from [https://virginia.app.box.com/folder/303726824749](https://virginia.box.com/s/nvduzmsulhcixdjvsgc3a9oierbllzmo) (UVA login required) 
+  - UVA students can download sample data files from [https://virginia.app.box.com/folder/303726824749](https://virginia.box.com/s/nvduzmsulhcixdjvsgc3a9oierbllzmo) (UVA login required) 
 
 ## Instructions for WSL2 users
- - We do not provide a WSL2 script b/c mounting sd cards from WSL2 is tedious, due to Windows security policies.
+ - We do not provide a WSL2 script b/c mounting sd cards from WSL2 is tedious, due to Windows security policies and the risk of nuking a native disk partition. 
  - Instead, do the following manually:
     - Plug in the SD card to your Windows machine
-    - Create two new partitions, both FAT32. partition 1: 100MB; partiton 2: spanning the rest of the SD card. 
+    - Delete all existing volumes. Create two partitions, both FAT32. partition 1: 100MB; partiton 2: the rest of the SD card. 
         - This can be done via Windows "Computer Management" -> Storage -> Disk Management
         - More details can be found from ChatGPT. 
     - Copy the files from `bootfs/` and `UVA-OS/` to partition 1 and 2, respectively.
