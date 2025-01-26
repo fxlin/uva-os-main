@@ -1,11 +1,20 @@
 
-the "test" kernel:
-kernel8-rpi3.img	md5sum: 074d1c0bae0a3572bc302d8f3d017a97 
+## the "test" kernel:
 
-which will print a message over UART
+`kernel8-rpi3.img`
+
+it prints a message over UART
+
 "if you see this message, the rpi3 setup is correct"
 
-(other files, based on Circle boot/README)
+`kernel8-rpi3-display.img`
+(to use it, rename this file to kernel8-rpi3.img and reboot rpi3)
+
+it will cycle through four colors on display:
+
+https://github.com/user-attachments/assets/194a12e3-30f1-481e-9378-114059aae0f9
+
+## other files (per Circle boot/README)
 	
 	bootcode.bin		boot loader (not used on Raspberry Pi 4)
 	start.elf		firmware executable for  Raspberry Pi 1-3
