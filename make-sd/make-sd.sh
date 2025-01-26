@@ -66,6 +66,11 @@ mount ${DEVICE}2 $MOUNT_DIR2
 echo "Copying files to the first partition..."
 rsync -a --no-owner --no-group $SOURCE1/ $MOUNT_DIR1/
 
+if [ ! -d "$SOURCE2" ]; then
+  echo "Directory $SOURCE2 does not exist. Creating it..."
+  mkdir -p $SOURCE2
+fi
+
 echo "Copying files to the second partition..."
 rsync -a --no-owner --no-group $SOURCE2/ $MOUNT_DIR2/
 
