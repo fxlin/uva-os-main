@@ -1,7 +1,12 @@
 
+the "test" kernel:
+kernel8-rpi3.img	md5sum: 074d1c0bae0a3572bc302d8f3d017a97 
 
-(below from Circle boot/README)
+which will print a message over UART
+"if you see this message, the rpi3 setup is correct"
 
+(other files, based on Circle boot/README)
+	
 	bootcode.bin		boot loader (not used on Raspberry Pi 4)
 	start.elf		firmware executable for  Raspberry Pi 1-3
 	start4.elf		firmware executable for  Raspberry Pi 4
