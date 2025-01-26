@@ -114,6 +114,9 @@ Note: your PC may give different names to the USB-serial dongle, e.g. COM4. Find
 
 Use the provided power supply. You may be attempted to connect Rpi3's power port (micro USB) to your PC's USB port. This is NOT recommended. The power supply from PC's USB port is not enough. 
 
+If everything works OK, the provided "test" kernel (kernel8-rpi3.img, md5sum 074d1c0bae0a3572bc302d8f3d017a97) will boot and show on the UART: 
+![image](https://github.com/user-attachments/assets/d6e1f4a1-5f8b-4061-add5-51ef65eb627f)
+
 ### An example setup
 
 ![alt text](setup.png)
