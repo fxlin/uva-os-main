@@ -11,7 +11,7 @@ A sd card with capacity >=16GB
 - bootfs/ contains the rpi3 firmware and configuration files, which are 
 are already provided. The partition will contain the kernel image to be built. 
 - UVA-OS/ contains user data files (music, picture, game assets). They are to be provided by the user. 
-  - UVA students can download needed assets from https://virginia.app.box.com/folder/303726824749 (UVA login required) 
+  - UVA students can download needed assets from [https://virginia.app.box.com/folder/303726824749](https://virginia.box.com/s/nvduzmsulhcixdjvsgc3a9oierbllzmo) (UVA login required) 
 
 ## Instructions for WSL2 users
  - We do not provide a WSL2 script b/c mounting sd cards from WSL2 is tedious, due to Windows security policies.
