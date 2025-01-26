@@ -1,6 +1,19 @@
 # Setup the raspi3 hardware
 
+## Table of Contents
 
+- [Check list](#check-list)
+- [Detailed descriptions](#detailed-descriptions)
+    - [Student provide: An Rpi3 board (Model B or B+)](#student-provide-an-rpi3-board-model-b-or-b)
+    - [We provide the following](#we-provide-the-following-based-on-your-needs)
+- [Prepare SD card](#prepare-for-sd-card)
+- [Build and install the kernel](#build-and-install-the-kernel)
+- [Plug in the serial cable](#plug-in-the-serial-cable)
+- [Configure the serial emulator](#configure-the-serial-emulator)
+    - [VM/Linux users](#vmlinux-users)
+    - [WSL2 users](#wsl2-users)
+- [Power up RPi3 & validate](#power-up-rpi3--validate)
+- [GAMEHAT setup](#gamehat-setup)
 ## Check list
 
 Students buy:
@@ -59,7 +72,7 @@ Loaner instructions for students:
 - Waveshare GAME HAT (inc. battery; HDMI cable; 40pin header extender; speaker) 
 
 
-## Prepare for SD card 
+## Prepare SD card 
 
 Connect the SD card reader to VM. Then in the VM: 
 ```
