@@ -110,12 +110,18 @@ Change the terminal settings like this:
 
 Note: your PC may give different names to the USB-serial dongle, e.g. COM4. Find it out by looking at Windows Device Manager. 
 
-### Powering up RPi3
+### Power up RPi3 & validate
 
-Use the provided power supply. You may be attempted to connect Rpi3's power port (micro USB) to your PC's USB port. This is NOT recommended. The power supply from PC's USB port is not enough. 
+Use the provided power supply. In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger). That should suffice for lab1/2 which do not draw high power. For later labs, better use 5v3A charger to provide enough power. 
 
-If everything works OK, the provided "test" kernel (kernel8-rpi3.img, md5sum 074d1c0bae0a3572bc302d8f3d017a97) will boot and show on the UART: 
+If everything works OK, the provided "test" kernel (make-sd/bootfs/kernel8-rpi3.img, md5sum 074d1c0bae0a3572bc302d8f3d017a97) will boot and show on the UART: 
+
 ![image](https://github.com/user-attachments/assets/d6e1f4a1-5f8b-4061-add5-51ef65eb627f)
+
+To test the display, try `make-sd/bootfs/kernel8-rpi3-display.img` (to use it, rename this file to kernel8-rpi3.img on SD card and reboot rpi3.
+it will cycle through four colors on display:
+
+https://github.com/user-attachments/assets/194a12e3-30f1-481e-9378-114059aae0f9
 
 ### An example setup
 
