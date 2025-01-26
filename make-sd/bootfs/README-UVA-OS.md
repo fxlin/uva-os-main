@@ -1,13 +1,13 @@
 
-## the "test" kernel:
+## the "test" kernels:
 
-`kernel8-rpi3.img`
+1. `kernel8-rpi3.img`
 
 it prints a message over UART
 
 "if you see this message, the rpi3 setup is correct"
 
-`kernel8-rpi3-display.img`
+2. `kernel8-rpi3-display.img`
 (to use it, rename this file to kernel8-rpi3.img and reboot rpi3)
 
 it will cycle through four colors on display:
