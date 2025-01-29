@@ -13,6 +13,7 @@
 - [Set up the VM](vm/vmware.md)
 - [Set up the rpi3 hardware](rpi3/rpi3-setup.md)
 - [Prepare SD cards for experiments](../make-sd/README-make-sd.md)
+- [How to submit](submission.md)
 
 
 ## OVERVIEW
