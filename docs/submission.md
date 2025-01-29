@@ -21,7 +21,7 @@ sudo apt install -y imagemagick ffmpeg
 **Every time you want to submit**
 
 ```shell
-$ COMPUTING_ID="xl6yq" ./prep-submission.sh
+$ COMPUTING_ID="xl6yq" scripts/prep-submission.sh
 ```
 
 ## Detailed instructions
@@ -71,10 +71,10 @@ $ COMPUTING_ID="xl6yq" ./scripts/prep-submission.sh
 All conditions met: All files are smaller than 50MB, DELIVERABLE directory exists, and no empty files in DELIVERABLE.
 Tarball created at
 -rw-r--r-- 1 xzl xzl 136K Nov  6 20:56 /tmp/Lab1-xl6yq.tar.gz
-Now double check the content of /tmp/Lab1-xl6yq.tar.gz, and submit it to Canvas.
+Now double check the content of **/tmp/Lab1-xl6yq.tar.gz**, and submit it to Canvas.
 ```
 
-The script will pack source code but any binaries in the tarball.
+The script will pack source code but any binaries in the tarball. In the example, the tarball is saved as **/tmp/Lab1-xl6yq.tar.gz**
 The above script will run several sanity checks on the submission. 
 Note the check may not be 100%. You still need to verify the contents of the tarball.
 
