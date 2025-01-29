@@ -58,6 +58,9 @@
 
 7. **Run the VM:**
    - Click **Play** or **Start Up** to power on the VM.
+   - To enable copy/paste across the VM and the host, do `sudo apt install open-vm-tools-desktop`
+   - also cf: https://chatgpt.com/share/6795614b-5de8-8004-959c-6b02a22b15f2
+
 
 8. **Shut Down the VM:**
    - Choose **Shut Down** from VMware Fusion’s **Virtual Machine** menu or shut down the OS inside the VM.
