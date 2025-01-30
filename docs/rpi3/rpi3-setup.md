@@ -33,7 +33,7 @@ Loaner instructions for students:
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
 | 1. A USB-UART dongle                    | Lab1 & later  | WSL2 users: SH-V09C5. VM users: legacy FTDI dongles                                                              |
 | 2. A micro SD card (>=16GB)                  | Lab1 & later  |                                                |
-| 3. A micro SD card reader that plugs in to personal computers                      | Lab1 & later  |                                                                       |
+| 3. A micro SD card reader that plugs in to personal computers                      | Lab1 & later  |   the loaner reader is USB-A, not USB-C. If your laptop lacks USB-A ports (e.g. a recent Macbook Pro), chances are that it has a built-in SD slot already; you just need a cheap microSD-SD adapter (no SD card reader needed) which TAs can provide                                  |
 | 4. A display w/ HDMI + an HDMI cable                     | Lab1 & later  | The loaner display comes with the needed HDMI-microHDMI cable & USB-C power supply   |
 | 5. A power supply for rpi3 (Micro USB, 5v3A, with inline switch) | Lab1 & later   | In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger). That should suffice for lab1/2 which do not draw high power. For later labs, better use 5v3A charger to provide enough power                                                            |
 | 6. USB keyboard                        | Lab4 & later  |                                                                       |
@@ -101,9 +101,19 @@ If everything builds OK, `kernel/Makefile` should copy the kernel image (kernel8
 Rpi3 <-- a USB-serial cable ---> PC (running a temrinal emulator) 
 ```
 
-After you get a serial cable, you need to test your connection. If you never did this before I recommend you to follow [this guide](https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf) It describes the process of connecting your Raspberry PI via a serial cable in great details. Basically, you run Raspberry's official OS to ensure the hardware setup is fine. 
+After you get a serial cable, you need to make the connection. If you never did this before I recommend you to follow [this guide](https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf).
+
+But, don't test the connection with the way in that document. Instead, use the sample kernel binaries we provide (see below). 
+
+<!-- It describes the process of connecting your Raspberry PI via a serial cable in great details. Basically, you run Raspberry's official OS to ensure the hardware setup is fine.  -->
+
+### The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues) 
 
 ![](https://cdn-learn.adafruit.com/assets/assets/000/035/695/small360/learn_raspberry_pi_piconsole_bb.png?1473736644)
+
+### the newer (SH-V09C5) dongle (for WSL2 or VM users)
+
+![alt text](image.png)
 
 ## Configure the serial emulator
 
@@ -123,22 +133,24 @@ Change the terminal settings like this:
 
 Note: your PC may give different names to the USB-serial dongle, e.g. COM4. Find it out by looking at Windows Device Manager. 
 
-### Power up RPi3 & validate
+### Power up & test
 
-Use the provided power supply. In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger). That should suffice for lab1/2 which do not draw high power. For later labs, better use 5v3A charger to provide enough power. 
+Use a microUSB power supply rated at 5V3A or higher. 
+In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger, often rated 5V1A). That should suffice for lab1/2 which do not draw high power. 
+For later labs, better use 5v3A charger to provide enough power. 
 
-If everything works OK, the provided "test" kernel (make-sd/bootfs/kernel8-rpi3.img, md5sum 074d1c0bae0a3572bc302d8f3d017a97) will boot and show on the UART: 
+If everything works OK, the provided "test" kernel (`make-sd/bootfs/kernel8-rpi3.img`, md5sum 074d1c0bae0a3572bc302d8f3d017a97) will boot and show on the UART: 
 
 ![image](https://github.com/user-attachments/assets/d6e1f4a1-5f8b-4061-add5-51ef65eb627f)
 
-To test the display, try `make-sd/bootfs/kernel8-rpi3-display.img` (to use it, rename this file to kernel8-rpi3.img on SD card and reboot rpi3.
+To test the display, try `make-sd/bootfs/kernel8-rpi3-display.img` (to use it, rename this file to kernel8-rpi3.img on SD card and reboot rpi3).
 it will cycle through four colors on display:
 
 https://github.com/user-attachments/assets/194a12e3-30f1-481e-9378-114059aae0f9
 
-### An example setup
+<!-- ### An example setup
 
-![alt text](setup.png)
+![alt text](setup.png) -->
 
 ## GAMEHAT setup
 
