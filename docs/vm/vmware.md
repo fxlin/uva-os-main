@@ -75,6 +75,8 @@ From the top-right corner of VMWare player:
 
 ![alt text](<sd card reader.jpg>)
 
+NB: for some laptops, the built-in SD card readers cannot be passed through to VM. Use the USB card reader instead. 
+
 ### Pass through the USB-serial adapter
 
 In the same way: 
@@ -89,7 +91,28 @@ After that, do `sudo dmesg` from the VM. Reference output below:
 
 ![alt text](<usb serial dmsg.jpg>)
 
-#### Launch minicom:
+
+### Configure minicom via its config file (already done for VM users)
+
+create the configure file, if it does not exist
+```
+sudo gedit /etc/minicom/minirc.dfl
+```
+
+And enter the following contents
+```
+pu port             /dev/ttyUSB0
+pu baudrate        115200
+pu bits            8
+pu parity          N
+pu stopbits        1
+pu rtscts          No
+pu displayhex    Yes
+pu addcarreturn  Yes
+```
+Save and exit
+
+### Launch minicom:
 
 ```
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
@@ -99,12 +122,15 @@ Warning: your OS may give different names to the USB-serial dongle, e.g. /dev/tt
 
 ![alt text](<minicom cmdline.jpg>)
 
-#### Minicom serial port settings
+### Appendix -- minicom configuration via GUI
+
+### Minicom serial port settings
+
+Press Ctrl-A then O to enter "configuration" 
 
 ![alt text](<minicom settings.jpg>)
 
-
-#### Minicom terminal settings
+### Minicom terminal settings
 
 (Note: T - Add carriage return : Yes) 
 
