@@ -75,7 +75,7 @@ From the top-right corner of VMWare player:
 
 ![alt text](<sd card reader.jpg>)
 
-NB: for some laptops, the built-in SD card readers cannot be passed through to VM. Use the USB card reader instead. 
+NB: on some laptops (e.g. Macbook Pro), the built-in SD card readers cannot be passed through to VM. Use the USB card reader instead. 
 
 ### Pass through the USB-serial adapter
 
@@ -86,6 +86,10 @@ In the same way:
 And confirm it: 
 
 ![alt text](<vm usb choice.jpg>)
+
+On Mac, it's similar:
+
+![Screenshot 2025-01-30 at 7 28 07 PM](https://github.com/user-attachments/assets/55dba7f0-8ad8-4ea2-ad47-5718c1d6f250)
 
 After that, do `sudo dmesg` from the VM. Reference output below: 
 
