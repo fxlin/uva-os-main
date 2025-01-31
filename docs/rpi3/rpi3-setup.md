@@ -66,9 +66,10 @@ Details here: [How to prepare SD cards for experiments](../../make-sd/README-mak
 Rpi3 <-- a USB-serial cable ---> PC (running a terminal emulator) 
 ```
 
-After you get a serial cable, you need to make the connection. If you never did this before I recommend you to follow [this guide](https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf).
+After you get a serial cable, you need to make the connection. 
 
-But, don't test the connection with the way in that document. Instead, use the sample kernel binaries we provide (see below). 
+<!------ If you never did this before I recommend you to follow [this guide](https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf).
+But, don't test the connection with the way in that document. Instead, use the sample kernel binaries we provide (see below). ----------->
 
 <!-- It describes the process of connecting your Raspberry PI via a serial cable in great details. Basically, you run Raspberry's official OS to ensure the hardware setup is fine.  -->
 
@@ -79,6 +80,12 @@ But, don't test the connection with the way in that document. Instead, use the s
 ### the newer (SH-V09C5) dongle (for WSL2 or VM users)
 
 ![alt text](image.png)
+
+
+### An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle. Note that HDMI is yet to be connected. 
+
+![image](https://github.com/user-attachments/assets/2b2dd91b-a9b3-46d6-b516-0a42f4f89558)
+
 
 ## Configure the serial emulator
 
