@@ -1,4 +1,21 @@
-## Running a Provided VM Image on Windows or macOS
+# Running a Provided VM Image on Windows or macOS
+
+## Table of Contents
+
+- [Running a Provided VM Image on Windows or macOS](#running-a-provided-vm-image-on-windows-or-macos)
+   - [Installation](#installation)
+      - [For Windows Users](#for-windows-users)
+      - [For macOS Users](#for-macos-users)
+   - [Developing on VM, for the Rpi3 hardware](#developing-on-vm-for-the-rpi3-hardware)
+      - [Pass through the SD card reader](#pass-through-the-sd-card-reader)
+      - [Pass through the USB-serial adapter](#pass-through-the-usb-serial-adapter)
+      - [Configure minicom via its config file (already done for VM users)](#configure-minicom-via-its-config-file-already-done-for-vm-users)
+      - [Launch minicom](#launch-minicom)
+   - [Appendix -- minicom configuration via GUI](#appendix----minicom-configuration-via-gui)
+      - [Minicom serial port settings](#minicom-serial-port-settings)
+      - [Minicom terminal settings](#minicom-terminal-settings)
+
+## Installation 
 
 ### For **Windows** Users:
 
@@ -70,10 +87,17 @@
 ## Developing on VM, for the Rpi3 hardware
 
 ### Pass through the SD card reader
+Often, when you plug in an SD card reader, there's a pop-up asking if you want to connect it to the VM. 
+Say yes. 
+If not, you can manually connect it.
 
-From the top-right corner of VMWare player:
+Example screenshot on Windows (Mac has a similar interface): 
 
 ![alt text](<sd card reader.jpg>)
+
+Once passed through, the VM (Ubuntu) should automatically recognize the SD card partitions (check the taskbar on the left), 
+and automatically mount the partitions as 
+`/media/student/bootfs` and `/media/student/UVA-OS/`
 
 NB: on some laptops (e.g. Macbook Pro), the built-in SD card readers cannot be passed through to VM. Use the USB card reader instead. 
 
@@ -91,9 +115,11 @@ On Mac, it's similar:
 
 ![Screenshot 2025-01-30 at 7 28 07 PM](https://github.com/user-attachments/assets/55dba7f0-8ad8-4ea2-ad47-5718c1d6f250)
 
-After that, do `sudo dmesg` from the VM. Reference output below: 
+After that, do `sudo dmesg` from the VM terminal. Look for things like: 
 
 ![alt text](<usb serial dmsg.jpg>)
+
+Here, the messages show that the USB-serial adapter is recognized as `/dev/ttyUSB0`.
 
 
 ### Configure minicom via its config file (already done for VM users)
@@ -111,22 +137,24 @@ pu bits            8
 pu parity          N
 pu stopbits        1
 pu rtscts          No
-pu displayhex    Yes
 pu addcarreturn  Yes
 ```
 Save and exit
 
-### Launch minicom:
+### Launch minicom
 
+From the VM command line: 
 ```
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
 ```
 
-Warning: your OS may give different names to the USB-serial dongle, e.g. /dev/ttyUSB1. Find it out by looking at `dmesg` output. 
+Warning: your OS may give different names to the USB-serial dongle, e.g. /dev/ttyUSB1. Find it out by looking at `dmesg` output above. 
+
+That's it. Continue to rest of the rpi3 setup [../rpi3/rpi3-setup.md](../rpi3/rpi3-setup.md).
 
 ![alt text](<minicom cmdline.jpg>)
 
-### Appendix -- minicom configuration via GUI
+## Appendix -- minicom configuration via GUI
 
 ### Minicom serial port settings
 
