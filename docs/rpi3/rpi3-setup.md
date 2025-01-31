@@ -97,6 +97,10 @@ Assume that you have finished setting up VM [here](../vm/vmware.md)
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
 ```
 
+Some students report brltty service interfere the uart setup. You can check if the service is inactive like the screenshot shown below.
+
+![alt text](https://github.com/fxlin/uva-os-main/blob/main/docs/rpi3/image-9.png?raw=true)
+
 ### WSL2 users: PuTTY recommended. A sample configuration below. 
 
 ![image-20210210120642726](image-20210210120642726.png)
