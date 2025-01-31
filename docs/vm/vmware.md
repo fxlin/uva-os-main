@@ -84,7 +84,16 @@
 
 ---
 
-## Developing on VM, for the Rpi3 hardware
+## Developing on VM, for Rpi3
+
+
+**Notes on pass through USB devices** 
+
+- on some laptops (e.g. Macbook Pro), the built-in SD card readers cannot be passed through to VM. If that happens, use the USB card reader instead. 
+- if you have a complex USB topology (e.g. the target USB device connected to a hub, which then connects to a dock, which connects to your computer), the 
+VM may not be able to recognize the USB device. 
+In that case, directly connect the USB device to a USB port on your computer 
+- if your laptop lacks USB-A ports, use a USBA-USBC adapter (often <$2) which the TA should be able to give you one.
 
 ### Pass through the SD card reader
 Often, when you plug in an SD card reader, there's a pop-up asking if you want to connect it to the VM. 
@@ -99,9 +108,7 @@ Once passed through, the VM (Ubuntu) should automatically recognize the SD card 
 and automatically mount the partitions as 
 `/media/student/bootfs` and `/media/student/UVA-OS/`
 
-NB: on some laptops (e.g. Macbook Pro), the built-in SD card readers cannot be passed through to VM. Use the USB card reader instead. 
-
-### Pass through the USB-serial adapter
+### Pass through the USB-UART dongle
 
 In the same way: 
 
@@ -139,7 +146,8 @@ pu stopbits        1
 pu rtscts          No
 pu addcarreturn  Yes
 ```
-Save and exit
+
+Save the file. 
 
 ### Launch minicom
 

@@ -44,35 +44,9 @@ Loaner instructions for students:
 | - Speaker                                  |   |                                                             |
 
 
-## Detailed descriptions
-
-### Student provide: An Rpi3 board (Model B or B+) [link](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-
-![](rpi3_resized.jpg)
-
-
-### We provide the following, based on your needs:
-
-- A USB-serial cable. We use: SH-V09C5
-
-![alt text](image-8.png)
-
-> Some old adapters no longer works for WSL2 (Windows driver issues); however they still works for Linux/VM. 
-
-- A 32GB micro SD card
-
-- A SD card reader
-
-- A portable display (inc. HDMI cable and USB-C power supply)
-
-- USB keyboard
-
-- Power supply for Rpi3
-
-- Waveshare GAME HAT (inc. battery; HDMI cable; 40pin header extender; speaker) 
-
-
 ## Prepare SD card 
+
+Assume that you have finished setting up VM [here](../vm/vmware.md). 
 
 Connect the SD card reader to VM. Then in the VM: 
 ```
@@ -80,25 +54,16 @@ cd uva-os-main/make-sd/
 sudo ./make-sd.sh /dev/sdX
 ```
 
+<!-- For the first time, validate the setup using our provided test kernel: `make-sd/bootfs/kernel8-rpi3-display.img`. 
+To use it, rename this file to kernel8-rpi3.img on SD card and reboot rpi3. 
+It shows four colors on display and prints messages via UART.  -->
+
 Details here: [How to prepare SD cards for experiments](../../make-sd/README-make-sd.md)
 
-## Build and install the kernel 
-```
-cd uva-os-world1
-export PLAT=rpi3
-```
-
-| Action              | Command             |
-|---------------------|---------------------|
-| To clean up         | `./cleanall.sh`     |
-| To build everything | `./makeall.sh`      |
-
-If everything builds OK, `kernel/Makefile` should copy the kernel image (kernel8-rpi3.img) to the SD card, in the "bootfs" partition. See `kernel/Makefile` for details.
-
-## Plug in the serial cable
+## Connect the UART cable
 
 ```
-Rpi3 <-- a USB-serial cable ---> PC (running a temrinal emulator) 
+Rpi3 <-- a USB-serial cable ---> PC (running a terminal emulator) 
 ```
 
 After you get a serial cable, you need to make the connection. If you never did this before I recommend you to follow [this guide](https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf).
@@ -117,7 +82,9 @@ But, don't test the connection with the way in that document. Instead, use the s
 
 ## Configure the serial emulator
 
-### VM/Linux users: see [VMware](../vm/vmware.md)
+### VM/Linux users
+
+Assume that you have finished setting up VM [here](../vm/vmware.md)
 
 ```
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
@@ -131,7 +98,7 @@ Change the terminal settings like this:
 
 ![alt text](image-2.png)
 
-Note: your PC may give different names to the USB-serial dongle, e.g. COM4. Find it out by looking at Windows Device Manager. 
+Note: your PC may give different names to the USB-UART dongle, e.g. COM4. Find it out by looking at Windows Device Manager. 
 
 ### Power up & test
 
@@ -151,6 +118,19 @@ https://github.com/user-attachments/assets/194a12e3-30f1-481e-9378-114059aae0f9
 <!-- ### An example setup
 
 ![alt text](setup.png) -->
+
+## Build and install your kernel 
+```
+cd uva-os-world1
+export PLAT=rpi3
+```
+
+| Action              | Command             |
+|---------------------|---------------------|
+| To clean up         | `./cleanall.sh`     |
+| To build everything | `./makeall.sh`      |
+
+If everything builds OK, `kernel/Makefile` should copy the kernel image (kernel8-rpi3.img) to the SD card, in the "bootfs" partition. See `kernel/Makefile` for details.
 
 ## GAMEHAT setup
 
