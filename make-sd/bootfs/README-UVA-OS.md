@@ -40,3 +40,19 @@ card along with the kernel*.img file of your Circle application.
 
 For 32-bit operation (AArch32) on the Raspberry Pi 1-3 and Zero that's all. You
 can put the SD card into you Raspberry Pi computer and power it on.
+
+## Notes on firmware version
+
+firmware-2025/ firmware extracted from a "stable-release" as of 2025, which is needed for rpi3b+ manufactured after 2023 to work properly. otherwise green led on Pi will give an error code of 4 long flashes and 7 short flashes. cf 
+
+https://arpicade.com/forums/viewtopic.php?t=4901
+https://github.com/raspberrypi/firmware/archive/refs/heads/stable.zip
+
+firmware-ours-pre2023/ firmware used by fxl durint development, later found to be incompatible with rpi3b+ manufactured after 2023. kept for reference.
+
+## Notes on uart clock 
+
+in config.txt, the line below enforces the clockrate for uart, otherwise is firmware-2025 will output garbage over uart (clock mismatch) 
+```
+core_freq=250
+```

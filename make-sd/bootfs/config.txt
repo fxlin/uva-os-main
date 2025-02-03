@@ -1,4 +1,5 @@
 enable_uart=1
 arm_64bit=1
 kernel=kernel8-rpi3.img
-#kernel=u-boot.bin
+# the line below enforces the clockrate for uart, otherwise the 2025 firmware will output garbage over uart (clock mismatch) - fxl Feb 2025
+core_freq=250
