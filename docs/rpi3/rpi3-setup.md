@@ -64,7 +64,7 @@ Details here: [How to prepare SD cards for experiments](../../make-sd/README-mak
 ## 3. Connect the UART cable
 
 ```
-Rpi3 <-- a USB-serial cable ---> PC (running a terminal emulator) 
+Rpi3 <-- a USB-UART dongle ---> PC (running a terminal emulator) 
 ```
 
 After you get a serial cable, you need to make the connection. 
@@ -124,7 +124,12 @@ After that, do `sudo dmesg` from the VM terminal. Look for things like:
 
 ![alt text](<usb serial dmsg.jpg>)
 
-Here, the messages show that the USB-serial adapter is recognized as `/dev/ttyUSB0`.
+Here, the messages show that the USB-UART dongle is recognized as `/dev/ttyUSB0`.
+
+A common error (shown below) is that the USB-UART dongle malfunctions. 
+In such a case, unplug the dongle, wait a few seconds, and plug it back in. 
+Then check `dmesg` again. If the problem persists, ask for a replacement dongle.
+![alt text](image-1.png)
 
 ### 4.3 Configure minicom via its config file (already done for VM users)
 
@@ -153,7 +158,7 @@ From the VM command line:
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
 ```
 
-Warning: your OS may give different names to the USB-serial dongle, e.g. /dev/ttyUSB1. Find it out by looking at `dmesg` output above. 
+Warning: your OS may give different names to the USB-UART dongle, e.g. /dev/ttyUSB1. Find it out by looking at `dmesg` output above. 
 
 That's it. Continue to rest of the rpi3 setup [../rpi3/rpi3-setup.md](../rpi3/rpi3-setup.md).
 
