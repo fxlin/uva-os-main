@@ -161,6 +161,14 @@ That's it. Continue to rest of the rpi3 setup [../rpi3/rpi3-setup.md](../rpi3/rp
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
 ```
 
+Some students report brltty service interfere the uart setup. You can check if the service is inactive like the screenshot shown below.
+
+![alt text](https://github.com/fxlin/uva-os-main/blob/main/docs/rpi3/image-9.png?raw=true)
+
+Some students report brltty service interfere the uart setup. You can check if the service is inactive like the screenshot shown below.
+
+![alt text](https://github.com/fxlin/uva-os-main/blob/main/docs/rpi3/image-9.png?raw=true)
+
 ## 5. WSL2 users: Configure the serial emulator
 
 PuTTY recommended. A sample configuration below. 
