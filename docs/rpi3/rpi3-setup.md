@@ -2,32 +2,38 @@
 
 ## Table of Contents
 
-- [Check list](#check-list)
-- [Detailed descriptions](#detailed-descriptions)
-    - [Student provide: An Rpi3 board (Model B or B+)](#student-provide-an-rpi3-board-model-b-or-b)
-    - [We provide the following](#we-provide-the-following-based-on-your-needs)
-- [Prepare SD card](#prepare-for-sd-card)
-- [Build and install the kernel](#build-and-install-the-kernel)
-- [Plug in the serial cable](#plug-in-the-serial-cable)
-- [Configure the serial emulator](#configure-the-serial-emulator)
-    - [VM/Linux users](#vmlinux-users)
-    - [WSL2 users](#wsl2-users)
-- [Power up RPi3 & validate](#power-up-rpi3--validate)
-- [GAMEHAT setup](#gamehat-setup)
-## Check list
+1. [Check list](#1-check-list)
+2. [Prepare SD card](#2-prepare-sd-card)
+3. [Connect the UART cable](#3-connect-the-uart-cable)
+    1. [The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues)](#31-the-legacy-dongle-for-vm-users-not-for-wsl2-or-native-win10-due-to-driver-issues)
+    2. [The newer (SH-V09C5) dongle (for WSL2 or VM users)](#32-the-newer-sh-v09c5-dongle-for-wsl2-or-vm-users)
+    3. [An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle](#33-an-example-setup-of-macbook-pro-which-uses-usba-usbc-adapter-for-the-uart-dongle)
+4. [VM/Linux users: Configure the serial emulator](#4-vmlinux-users-configure-the-serial-emulator)
+    1. [Pass through the SD card reader](#41-pass-through-the-sd-card-reader)
+    2. [Pass through the USB-UART dongle](#42-pass-through-the-usb-uart-dongle)
+    3. [Configure minicom via its config file (already done for VM users)](#43-configure-minicom-via-its-config-file-already-done-for-vm-users)
+    4. [Launch minicom](#44-launch-minicom)
+5. [WSL2 users: Configure the serial emulator](#5-wsl2-users-configure-the-serial-emulator)
+6. [Power up & test](#6-power-up--test)
+7. [Build and install your kernel](#7-build-and-install-your-kernel)
+8. [GAMEHAT setup](#8-gamehat-setup)
+9. [Appendix -- minicom configuration via GUI](#appendix--minicom-configuration-via-gui)
+    1. [Minicom serial port settings](#a1-minicom-serial-port-settings)
+    2. [Minicom terminal settings](#a2-minicom-terminal-settings)
+
+## 1. Check list
 
 Students buy:
 | Item                                | Provided By | Notes                                                                 |
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
 | Rpi3 board (Model B or B+)          | Student     | [link](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)  |
 
-
 Loaner instructions for students:
 1. students specify which of the following items are needed. NB: for lab1--3, only item 1--5 are in use.
 2. if you need item 1, specify: are you using WSL2 or VM
-4. contact: Afsara Benazir (TA) hys4qm@
-5. Hardware-kit pickup spreadsheet (mark AFTER the pickup) [link](https://myuva.sharepoint.com/:x:/s/XSEL-afsara-next/EdYnzYErdZ1AnqmaAjGY2_QBQWsVQ2lCzCud1rGTHytnIQ?e=k0St0w)
-6. keep any package and cables that come with items (esp item 4 the display), and return the item in its original package. 
+3. contact: Afsara Benazir (TA) hys4qm@
+4. Hardware-kit pickup spreadsheet (mark AFTER the pickup) [link](https://myuva.sharepoint.com/:x:/s/XSEL-afsara-next/EdYnzYErdZ1AnqmaAjGY2_QBQWsVQ2lCzCud1rGTHytnIQ?e=k0St0w)
+5. keep any package and cables that come with items (esp item 4 the display), and return the item in its original package. 
 
 | Item                                | Needed for | Notes                                                                 |
 |-------------------------------------|-------------|-----------------------------------------------------------------------|
@@ -43,8 +49,7 @@ Loaner instructions for students:
 | - 40pin header extender, angled                    |   |   for debugging by exposing its UART port                                                           |
 | - Speaker                                  |   |                                                             |
 
-
-## Prepare SD card 
+## 2. Prepare SD card 
 
 Assume that you have finished setting up VM [here](../vm/vmware.md). 
 
@@ -54,13 +59,9 @@ cd uva-os-main/make-sd/
 sudo ./make-sd.sh /dev/sdX
 ```
 
-<!-- For the first time, validate the setup using our provided test kernel: `make-sd/bootfs/kernel8-rpi3-display.img`. 
-To use it, rename this file to kernel8-rpi3.img on SD card and reboot rpi3. 
-It shows four colors on display and prints messages via UART.  -->
-
 Details here: [How to prepare SD cards for experiments](../../make-sd/README-make-sd.md)
 
-## Connect the UART cable
+## 3. Connect the UART cable
 
 ```
 Rpi3 <-- a USB-serial cable ---> PC (running a terminal emulator) 
@@ -68,36 +69,101 @@ Rpi3 <-- a USB-serial cable ---> PC (running a terminal emulator)
 
 After you get a serial cable, you need to make the connection. 
 
-<!------ If you never did this before I recommend you to follow [this guide](https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf).
-But, don't test the connection with the way in that document. Instead, use the sample kernel binaries we provide (see below). ----------->
-
-<!-- It describes the process of connecting your Raspberry PI via a serial cable in great details. Basically, you run Raspberry's official OS to ensure the hardware setup is fine.  -->
-
-### The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues) 
+### 3.1 The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues) 
 
 ![](https://cdn-learn.adafruit.com/assets/assets/000/035/695/small360/learn_raspberry_pi_piconsole_bb.png?1473736644)
 
-### the newer (SH-V09C5) dongle (for WSL2 or VM users)
+### 3.2 The newer (SH-V09C5) dongle (for WSL2 or VM users)
 
 ![alt text](image.png)
 
-
-### An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle. Note that HDMI is yet to be connected. 
+### 3.3 An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle. Note that HDMI is yet to be connected. 
 
 ![image](https://github.com/user-attachments/assets/2b2dd91b-a9b3-46d6-b516-0a42f4f89558)
 
-
-## Configure the serial emulator
-
-### VM/Linux users
+## 4. VM/Linux users: Configure the serial emulator
 
 Assume that you have finished setting up VM [here](../vm/vmware.md)
+
+**Notes on pass through USB devices** 
+
+- on some laptops (e.g. Macbook Pro), the built-in SD card readers cannot be passed through to VM. If that happens, use the USB card reader instead. 
+- if you have a complex USB topology (e.g. the target USB device connected to a hub, which then connects to a dock, which connects to your computer), the 
+VM may not be able to recognize the USB device. 
+In that case, directly connect the USB device to a USB port on your computer 
+- if your laptop lacks USB-A ports, use a USBA-USBC adapter (often <$2) which the TA should be able to give you one.
+
+### 4.1 Pass through the SD card reader
+Often, when you plug in an SD card reader, there's a pop-up asking if you want to connect it to the VM. 
+Say yes. 
+If not, you can manually connect it.
+
+Example screenshot on Windows (Mac has a similar interface): 
+
+![alt text](<sd card reader.jpg>)
+
+Once passed through, the VM (Ubuntu) should automatically recognize the SD card partitions (check the taskbar on the left), 
+and automatically mount the partitions as 
+`/media/student/bootfs` and `/media/student/UVA-OS/`
+
+### 4.2 Pass through the USB-UART dongle
+
+In the same way: 
+
+![alt text](<vmplayer usb icon.jpg>)
+
+And confirm it: 
+
+![alt text](<vm usb choice.jpg>)
+
+On Mac, it's similar:
+
+![Screenshot 2025-01-30 at 7 28 07 PM](https://github.com/user-attachments/assets/55dba7f0-8ad8-4ea2-ad47-5718c1d6f250)
+
+After that, do `sudo dmesg` from the VM terminal. Look for things like: 
+
+![alt text](<usb serial dmsg.jpg>)
+
+Here, the messages show that the USB-serial adapter is recognized as `/dev/ttyUSB0`.
+
+### 4.3 Configure minicom via its config file (already done for VM users)
+
+create the configure file, if it does not exist
+```
+sudo gedit /etc/minicom/minirc.dfl
+```
+
+And enter the following contents
+```
+pu port             /dev/ttyUSB0
+pu baudrate        115200
+pu bits            8
+pu parity          N
+pu stopbits        1
+pu rtscts          No
+pu addcarreturn  Yes
+```
+
+Save the file. 
+
+### 4.4 Launch minicom
+
+From the VM command line: 
+```
+sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
+```
+
+Warning: your OS may give different names to the USB-serial dongle, e.g. /dev/ttyUSB1. Find it out by looking at `dmesg` output above. 
+
+That's it. Continue to rest of the rpi3 setup [../rpi3/rpi3-setup.md](../rpi3/rpi3-setup.md).
 
 ```
 sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
 ```
 
-### WSL2 users: PuTTY recommended. A sample configuration below. 
+## 5. WSL2 users: Configure the serial emulator
+
+PuTTY recommended. A sample configuration below. 
 
 ![image-20210210120642726](image-20210210120642726.png)
 
@@ -107,7 +173,7 @@ Change the terminal settings like this:
 
 Note: your PC may give different names to the USB-UART dongle, e.g. COM4. Find it out by looking at Windows Device Manager. 
 
-### Power up & test
+## 6. Power up & test
 
 Use a microUSB power supply rated at 5V3A or higher. 
 In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger, often rated 5V1A). That should suffice for lab1/2 which do not draw high power. 
@@ -122,11 +188,7 @@ it will cycle through four colors on display:
 
 https://github.com/user-attachments/assets/194a12e3-30f1-481e-9378-114059aae0f9
 
-<!-- ### An example setup
-
-![alt text](setup.png) -->
-
-## Build and install your kernel 
+## 7. Build and install your kernel 
 ```
 cd uva-os-world1
 export PLAT=rpi3
@@ -139,7 +201,7 @@ export PLAT=rpi3
 
 If everything builds OK, `kernel/Makefile` should copy the kernel image (kernel8-rpi3.img) to the SD card, in the "bootfs" partition. See `kernel/Makefile` for details.
 
-## GAMEHAT setup
+## 8. GAMEHAT setup
 
 Follow the Waveshare website instructions to assemble it. LEAVE THE back cover off. Plug in the speaker for sound. Insert SD card and power up.
 
@@ -159,9 +221,18 @@ Connect the display to the Rpi3 via a HDMI cable (the hard HDMI connector that c
 
 ![alt text](image-7.png)
 
+## Appendix -- minicom configuration via GUI
 
+### A.1 Minicom serial port settings
 
+Press Ctrl-A then O to enter "configuration" 
 
+![alt text](<minicom settings.jpg>)
 
+### A.2 Minicom terminal settings
 
+(Note: T - Add carriage return : Yes) 
 
+![alt text](<minicom cr line.jpg>)
+
+[Back to top](#setup-the-raspi3-hardware)
