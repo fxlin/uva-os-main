@@ -123,6 +123,8 @@ The idea is to put the gpios used for JTAG connection for "alternate function 4"
 
 ### OpenOCD Commands
 
+tested on: Windows 11 + openocd-20240916 pre-built; Ubuntu 2204 + openocd from apt
+
 You need two configuration files: one for the target (Raspberry Pi 3) and one for the debugger (J-Link).
 
 The configuration files included with the OpenOCD package work fine.
@@ -133,7 +135,6 @@ Here is an example `run.bat` file that launches the OpenOCD GDB server. Place th
 @echo off
 cd /d "%~dp0"
 bin\openocd.exe -f share/openocd/scripts/interface/jlink.cfg -f share/openocd/scripts/board/rpi3.cfg -c "bindto 172.26.96.1"
-REM bin\openocd.exe -f share/openocd/scripts/interface/jlink.cfg -f rpi3.cfg -c "bindto 172.26.96.1"
 pause
 ```
 
