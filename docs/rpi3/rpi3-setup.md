@@ -160,12 +160,6 @@ sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
 
 Warning: your OS may give different names to the USB-UART dongle, e.g. /dev/ttyUSB1. Find it out by looking at `dmesg` output above. 
 
-That's it. Continue to rest of the rpi3 setup [../rpi3/rpi3-setup.md](../rpi3/rpi3-setup.md).
-
-```
-sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
-```
-
 Some students report brltty service interfere the uart setup. You can check if the service is inactive like the screenshot shown below.
 
 ![alt text](https://github.com/fxlin/uva-os-main/blob/main/docs/rpi3/image-9.png?raw=true)
