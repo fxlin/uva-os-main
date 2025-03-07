@@ -6,9 +6,27 @@ Mar 2025, 2025
 
 *Picture above: A JTAG debugger, among other things, connected to an Rpi3 board (see below for connection details)* 
 
-## Concepts
+## Overview
 
 JTAG is a specialized hardware interface that allows for in-situ debugging of a target board. It enables the observation of registers, setting of breakpoints, and monitoring of memory contents, providing an interactive debugging experience similar to that of QEMU (at least that's the goal).
+
+**Verdict**: JTAG debugging should not be considered a replacement for self-hosted debugging. It is more suitable for debugging bare-metal or embedded systems, or the early boot stages of an OS kernel.
+
+For rpi3 -- 
+
+[V] breakpoint & single step in kernel code
+
+[V] attach to a running core & show registers, call stack, etc. (e.g. for debugging hang, deadlock) 
+
+[?] breakpoint & single step in user code (can be done, but tedious. see below)
+
+[X] reset target and halt (no luck)
+
+[X] load program to target (no luck)
+
+[X] read system registers (no luck)
+
+
 
 ### Comparison
 
@@ -34,8 +52,6 @@ JTAG is a specialized hardware interface that allows for in-situ debugging of a 
     - Less setup required
 - **Cons**: 
     - More debugging code to write, which may introduce new bugs (e.g., deadlock in trace buffer)
-
-**Verdict**: JTAG debugging should not be considered a replacement for self-hosted debugging. It is more suitable for debugging bare-metal or embedded systems, or the early boot stages of an OS kernel.
 
 ## Status -- jtag debugging for rpi3
 
