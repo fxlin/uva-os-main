@@ -56,6 +56,8 @@ step 6 (reverse code stripping on the local copy)
 # reset local main br
 git reset --hard
 
+############### release sample solutions ############################
+Just follow submission.md to generate a submission tarball
 
 ############### end of instructions, below are scratch pad commands ############################
 
