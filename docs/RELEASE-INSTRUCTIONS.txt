@@ -1,0 +1,98 @@
+this document describes how to release the code to the public (students),
+i.e. pushing code to a "world" repo. 
+
+UPDATE: 
+Nov 2024, Jan 2025
+
+overview:
+- to prepare for assignments (called "quests"), invoke scripts to strip annoated code away from the codebase
+- to pack certain code and docs into a fresh directory
+- to push the directory as a whole to a remote, "world" repo. overwrite any history and commits there. 
+
+
+step 1. make sure we are on the "main" branch, make sure it's clean, not outstanding changes.
+
+- all the actions in the doc will be performed on the main branch. 
+- these actions will not modify the main branch 
+
+---------------------
+
+only release doc, webpage, excluding the code 
+./scripts/prep-push.sh --no-code
+
+---------------------
+
+release the doc and stripped code 
+
+step 2 (optional) sanity check: dry run and see which files will be changed 
+
+in the code repo's root directory, run the following command:
+
+ ./scripts/remove-source-lines.py --mode=dry-run -d .
+
+step 3 (for instructors testing). strip away the code; but instead of deleting them, converting 
+them into comments - so that instructors can "replay" what the students would do, 
+by uncommenting the stripped code incrementally 
+
+./scripts/remove-source-lines.py --mode=comment
+
+can check which files are changed via `git status`.
+
+step 4 (prep release). if step 2 and 3 all look good: 
+make sure the branch is clean (e.g. via `git reset --hard`). 
+and actually deleting the stripped code from the code: 
+
+./scripts/remove-source-lines.py --mode=remove -d .
+
+can check which files are changed via `git status`.
+
+step 5 (push to remote).
+if step 4 is successful, 
+push the stripped code to the remote github repo, delete any history 
+# default: release the code 
+./scripts/prep-push.sh 
+
+step 6 (reverse code stripping on the local copy) 
+# reset local main br
+git reset --hard
+
+
+############### end of instructions, below are scratch pad commands ############################
+
+# switch to student branch
+git co student
+
+# Fetch the latest changes from main
+# Reset your current branch (student) to match main:
+git fetch origin main
+git reset --hard origin/main
+
+
+# remove all uneeded stuffs from the branch...
+git rm  -r staged/
+git rm -r  archived/
+git rm -r exp?
+git rm -r exp??
+
+# clean code, first dry run, sanity check 
+ ./scripts/remove-source-lines.py --mode=dry-run -d .
+ 
+# update: do this on main br for testing...
+# then 
+# ./scripts/remove-source-lines.py --mode=comment
+(try to replay the quests, walkthrough the quest dsecription...)
+
+# finally 
+./scripts/remove-source-lines.py --mode=remove -d .
+
+# check, shoudl be zero 
+grep STUDENT -r *
+
+
+############### push to remote ###################
+
+git checkout --orphan student
+git add . 
+git commit -m "init"
+git remote add uva-os git@github.com:fxlin/uva-os-world1.git
+git push -u uva-os student --force
