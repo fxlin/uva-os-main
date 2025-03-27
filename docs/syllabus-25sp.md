@@ -263,6 +263,14 @@ If full credit was not achieved on a previous lab, do bonus points achieved in a
 
 Bonus points beyond 100% will be considered for A+, which I only give to a few students per year. 
 
+If a student happens to be on the boundary of A/A- (or B/B-), yes bonus points will help. 
+
+Overall, my principles are: 
+
+- I appreciate students doing extra bonus points 
+
+- I want to set a clear expectation up front (e.g. what is needed to get a "A"), rather than having students doing as much bonus as possible.
+
 ### How I determine the final grades 
 
 https://fxlin.github.io/final-grades.pdf
