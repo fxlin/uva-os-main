@@ -255,6 +255,14 @@ We expect a student to participate in some of the above activities (not necessar
 
 **Do NOT ask for our formula** on how we calculate the participation points – as it is difficult to figure out one to cover all the above factors. You will need to trust that the instructor will give fair participation points. If you disagree with your participation points after the grade is out, talk to the instructor. 
 
+### How do bonus points affect my grade? 
+
+Each lab has some bonus points, which only contribute to that lab, not other labs. 
+
+If full credit was not achieved on a previous lab, do bonus points achieved in a later lab have any effect in raising that previous labs score? - No
+
+Bonus points beyond 100% will be considered for A+, which I only give to a few students per year. 
+
 ### How I determine the final grades 
 
 https://fxlin.github.io/final-grades.pdf
