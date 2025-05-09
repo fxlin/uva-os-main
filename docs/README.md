@@ -9,6 +9,8 @@ Sp 2025 is over; see you in Sp 2026!
 [LAB4](https://github.com/fxlin/uva-os-world4) |
 [LAB5](https://github.com/fxlin/uva-os-world5) 
 
+[PAPER](https://arxiv.org/abs/2504.17984)
+
 ## QUICK LINKS
 
 - [Syllabus for CS4414/6456, Spring 2025](syllabus-25sp.md)
