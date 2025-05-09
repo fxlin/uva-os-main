@@ -1,5 +1,7 @@
 # Operating Systems: From Boot to DOOM
 
+Sp 2025 is over; see you in Sp 2026!
+
 [OVERVIEW](https://github.com/fxlin/cs4414-main) |
 [LAB1](https://github.com/fxlin/uva-os-world1) |
 [LAB2](https://github.com/fxlin/uva-os-world2) |
