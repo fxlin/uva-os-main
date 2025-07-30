@@ -1,0 +1,731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>JTAG debugging 101 - cs4414-main</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-red" data-md-color-accent="deep-red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jtag-debugging-101" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="cs4414-main" class="md-header__button md-logo" aria-label="cs4414-main" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cs4414-main
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JTAG debugging 101
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Syllabus
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="cs4414-main" class="md-nav__button md-logo" aria-label="cs4414-main" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    cs4414-main
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jtag-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      JTAG Debugging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-hosting-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self-Hosting Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-jtag-debugging-for-rpi3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status -- jtag debugging for rpi3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status -- jtag debugging for rpi3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution-1-ftdi-based-jtag-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution 1: FTDI-based JTAG Debugger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-2-segger-j-link-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution 2: Segger J-Link Debugger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuphowto" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetupHowto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SetupHowto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      hardware wiring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="hardware wiring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpi3-side-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      rpi3-side connections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-20-10-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      the 20-10 adapter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-jtag-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      the JTAG debugger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-rpi3-configtxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      the rpi3 config.txt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocd-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenOCD Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenOCD Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-breakpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Breakpoints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="jtag-debugging-101">JTAG debugging 101</h1>
+<p>Mar 2025, 2025</p>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<p><em>Picture above: A JTAG debugger, among other things, connected to an Rpi3 board (see below for connection details)</em> </p>
+<h2 id="overview">Overview</h2>
+<p>JTAG is a specialized hardware interface that allows for in-situ debugging of a target board. It enables the observation of registers, setting of breakpoints, and monitoring of memory contents, providing an interactive debugging experience similar to that of QEMU (at least that's the goal).</p>
+<p><strong>Verdict</strong>: JTAG debugging should not be considered a replacement for self-hosted debugging. It is more suitable for debugging bare-metal or embedded systems, or the early boot stages of an OS kernel.</p>
+<p>For rpi3 -- </p>
+<p>[V] breakpoint &amp; single step in kernel code</p>
+<p>[V] attach to a running core &amp; show registers, call stack, etc. (e.g. for debugging hang, deadlock) </p>
+<p>[?] breakpoint &amp; single step in user code (can be done, but tedious. see below)</p>
+<p>[X] reset target and halt (no luck)</p>
+<p>[X] load program to target (no luck)</p>
+<p>[X] read system registers (no luck)</p>
+<h3 id="comparison">Comparison</h3>
+<h4 id="jtag-debugging">JTAG Debugging</h4>
+<ul>
+<li>
+<p><strong>JTAG debugging</strong>: Using a JTAG debugger to attach to a target processor (e.g., BCM2835 on Raspberry Pi 3). The JTAG debugger serves as a bridge between the development machine and the target processor, communicating debugging commands (read/write of memory, registers, etc.).</p>
+</li>
+<li>
+<p><strong>Pros</strong>: </p>
+<ul>
+<li>Interactive</li>
+<li>Can easily watch lots of information</li>
+<li>Less code to write</li>
+</ul>
+</li>
+<li><strong>Cons</strong>: <ul>
+<li>Requires effort to set up (both hardware wiring and software tools)</li>
+<li>Debugging connection can be brittle and break occasionally</li>
+<li>Slower execution and single stepping</li>
+</ul>
+</li>
+</ul>
+<h4 id="self-hosting-debugging">Self-Hosting Debugging</h4>
+<ul>
+<li>
+<p><strong>Self-hosting debugging</strong>: Without an external debugger, the target system implements software debugging logic as part of the OS. This includes <code>printf</code> via UART, a trace buffer, and hardware breakpoints/watchpoints as supported by the processor.</p>
+</li>
+<li>
+<p><strong>Pros</strong>: </p>
+<ul>
+<li>Mostly about collecting information (either in real-time such as UART messages, or post-mortem such as kernel event trace and CPU instruction trace) and analyzing it</li>
+<li>Less setup required</li>
+</ul>
+</li>
+<li><strong>Cons</strong>: <ul>
+<li>More debugging code to write, which may introduce new bugs (e.g., deadlock in trace buffer)</li>
+</ul>
+</li>
+</ul>
+<h2 id="status-jtag-debugging-for-rpi3">Status -- jtag debugging for rpi3</h2>
+<p>As of February 2025, there are two possible solutions:</p>
+<h3 id="solution-1-ftdi-based-jtag-debugger">Solution 1: FTDI-based JTAG Debugger</h3>
+<ul>
+<li><strong>Cost</strong>: Under $50</li>
+<li><strong>Hardware</strong>: FT2232H chip, a USB-to-JTAG bridge</li>
+<li><strong>Software</strong>: OpenOCD, which supports a variety of target boards, including Raspberry Pi 3 and 4. OpenOCD can run on Linux (including in a VM), WSL2 (through USB device passthrough), and natively on Windows.</li>
+</ul>
+<p><strong>Pros</strong>:
+- Affordable
+- Wide support for different target boards</p>
+<p><strong>Cons</strong>:
+- OpenOCD implements only basic debugging commands.
+- Breakpoints are set by overwriting instructions in memory instead of using hardware breakpoints.
+- Execution with conditional breakpoints is slow.
+- Cannot reset the target board to 'halt'; must attach the debugger while the target is in a waiting state.
+- Cannot read/write system registers, including debugging registers like DBGBCR0_EL1.</p>
+<h3 id="solution-2-segger-j-link-debugger">Solution 2: Segger J-Link Debugger</h3>
+<ul>
+<li><strong>Cost</strong>: Educational version at $60, full version $500 or more</li>
+<li><strong>Software</strong>: More advanced than OpenOCD but lacks official support for Raspberry Pi boards.</li>
+</ul>
+<p><strong>Pros</strong>:
+- More advanced software tools</p>
+<p><strong>Cons</strong>:
+- Expensive
+- No official support for Raspberry Pi boards, leading to issues like "Error: CTI connected to core not found. Debugging not possible."
+- More focused on microcontroller boards.</p>
+<p>References:
+- <a href="https://stackoverflow.com/questions/58480411/j-link-connection-to-cortex-a53-raspberry-pi3b">Stack Overflow discussion</a>
+- <a href="https://forum.segger.com/index.php/Thread/9280-SOLVED-Ask-again-for-Raspberry-Pi-connect/">Segger forum discussion</a></p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<p>Therefore, despite J-Link's rich software support, the only solution to use it with Raspberry Pi 3 is OpenOCD, which suffers from all the drawbacks mentioned above.</p>
+<h2 id="setuphowto">SetupHowto</h2>
+<h3 id="hardware-wiring">hardware wiring</h3>
+<h4 id="overview_1">Overview</h4>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<p>NB: purple wire not connected.</p>
+<h4 id="diagram-source">Diagram <a href="https://linaro.atlassian.net/wiki/spaces/TCWGPUB/pages/25296346120/Raspberry+Pi+Linux+kernel+debugging+with+OpenOCD">source</a></h4>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<p><img alt="alt text" src="../image.png" /></p>
+<h4 id="rpi3-side-connections">rpi3-side connections</h4>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<h4 id="the-20-10-adapter">the 20-10 adapter</h4>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<h4 id="the-jtag-debugger">the JTAG debugger</h4>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<h3 id="the-rpi3-configtxt">the rpi3 config.txt</h3>
+<p>add the following lines: </p>
+<pre><code>enable_jtag_gpio=1
+gpio=23-27=a4
+gpio=22=a4,pu
+</code></pre>
+<p>The idea is to put the gpios used for JTAG connection for "alternate function 4". gpio22 is special, which connects to the jtag TRST signal. It must be pulled up.
+<a href="https://forums.raspberrypi.com/viewtopic.php?t=286115">discussion</a></p>
+<h3 id="openocd-commands">OpenOCD Commands</h3>
+<p>tested on: Windows 11 + openocd-20240916 pre-built; Ubuntu 2204 + openocd from apt</p>
+<p>You need two configuration files: one for the target (Raspberry Pi 3) and one for the debugger (J-Link).</p>
+<p>The configuration files included with the OpenOCD package work fine.</p>
+<p>Here is an example <code>run.bat</code> file that launches the OpenOCD GDB server. Place this file in the OpenOCD directory:</p>
+<pre><code>@echo off
+cd /d &quot;%~dp0&quot;
+bin\openocd.exe -f share/openocd/scripts/interface/jlink.cfg -f share/openocd/scripts/board/rpi3.cfg -c &quot;bindto 172.26.96.1&quot;
+pause
+</code></pre>
+<p>In the example above, the server listens at <code>172.26.96.1</code>, which is the Windows machine's IP address with respect to the WSL2 VM. This allows GDB to connect from WSL2.</p>
+<p><strong>Caveats</strong>:
+It is better to kill and restart OpenOCD every time the target board is reset; otherwise, GDB may show stale values (e.g., old PC from a previous run or all zeros for instructions and memory).</p>
+<h4 id="workflow">Workflow</h4>
+<ol>
+<li>Kill <code>openocd</code>.</li>
+<li>Kill <code>gdb</code>.</li>
+<li>Reset the target board.</li>
+<li>Start <code>openocd</code>. This will attach to the running target and halt it at the current instruction.</li>
+<li>Start <code>gdb</code>.</li>
+</ol>
+<p>Due to step 4, the target code (OS) should be designed to wait for the debugger to attach. Otherwise, you won't have control over which code is being executed when the debugger attaches. This can be achieved by adding code to the OS that waits for a character from UART.</p>
+<p><strong>Question</strong>: How to attach JTAG during the boot.S code?
+<strong>Answer</strong>: I use an infinite loop to wait for attachment and then change the loop condition from the JTAG to continue the boot process.</p>
+<h4 id="setting-breakpoints">Setting Breakpoints</h4>
+<p>When attaching to the target, it runs the kernel code at EL1. Suppose GDB has already loaded the kernel ELF (<code>file kernel8.elf</code>), you can set a breakpoint like <code>b schedule()</code>.</p>
+<p>Setting a breakpoint in user code can only be done when the user address space is activated (i.e., TTBR0 is set to the user page table).</p>
+<p>To set a kernel breakpoint, for example, right before an <code>exec()</code> syscall returns:
+1. Set a breakpoint at the user code, e.g., <code>b *0x1000</code>.
+2. Before continuing, disarm all kernel breakpoints, e.g., <code>del 1</code>. Otherwise, once you return to EL0, GDB will try to re-install these breakpoints but cannot access kernel memory from EL0, resulting in errors.
+3. Continue with <code>c</code>.</p>
+<p>Once the user breakpoint is hit, load the user symbols via <code>file user.elf</code>. You can then inspect the user memory, variables, etc.</p>
+<p><strong>Caveat</strong>: You cannot proceed to the next instruction from the user breakpoint. Even deleting the breakpoint does not help, and the user code seems stuck there forever.</p>
+<h3 id="references">References</h3>
+<p>https://metebalci.com/blog/bare-metal-raspberry-pi-3b-jtag/</p>
+<p>https://www.suse.com/c/debugging-raspberry-pi-3-with-jtag/</p>
+<p>https://www.linaro.org/blog/open-on-chip-debugger-ocd-at-linaro/</p>
+<p>https://collaborate.linaro.org/display/TCWGPUB/OpenOCD+for+AArch64</p>
+<p>https://linaro.atlassian.net/wiki/spaces/TCWGPUB/pages/25296346120/Raspberry+Pi+Linux+kernel+debugging+with+OpenOCD</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

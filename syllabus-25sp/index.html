@@ -1,0 +1,1011 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Operating Systems: From Boot to DOOM - cs4414-main</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-red" data-md-color-accent="deep-red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operating-systems-from-boot-to-doom" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="cs4414-main" class="md-header__button md-logo" aria-label="cs4414-main" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cs4414-main
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operating Systems: From Boot to DOOM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Syllabus
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="cs4414-main" class="md-nav__button md-logo" aria-label="cs4414-main" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    cs4414-main
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#syllabus-for-cs44146456-spring-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syllabus for CS4414/6456 , Spring 2025
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCHEDULE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-things-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      FIRST THINGS FIRST
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FIRST THINGS FIRST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attitude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-not-share-your-code-publicly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do not share your code publicly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code safety
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOGISTICS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LOGISTICS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instruction-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instruction team
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-for-cs6456-students" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements for CS6456 students?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-individually-or-as-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Work individually or as teams?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-genai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use GenAI?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textbook-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      Textbook - None
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      EQUIPMENT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emulator-or-real-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emulator or real hardware?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emulator or real hardware?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dev machines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpi3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rpi3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      SUBMISSIONS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRADING
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GRADING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-i-measure-participation" class="md-nav__link">
+    <span class="md-ellipsis">
+      How I measure participation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-bonus-points-affect-my-grade" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do bonus points affect my grade?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-i-determine-the-final-grades" class="md-nav__link">
+    <span class="md-ellipsis">
+      How I determine the final grades
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    <span class="md-ellipsis">
+      HELP!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HELP!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      POLICIES
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="POLICIES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#honor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Honor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whiteboard-only-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Whiteboard only collaboration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-wellbeing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your wellbeing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diversity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diversity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#religious-accommodations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Religious accommodations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-based-personal-violence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power-based personal violence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="operating-systems-from-boot-to-doom">Operating Systems: From Boot to DOOM</h1>
+<h3 id="syllabus-for-cs44146456-spring-2025">Syllabus for CS4414/6456 , Spring 2025</h3>
+<p>Last updated: Jan 2025</p>
+<p><strong>Note: this is a new cs4414</strong>. As the UVA CS department completes the migration to the new undergraduate curriculum, this course has been redesigned accordingly. It is different from my previous offerings of CS4414 (up to Spring 2024), which you can see <a href="../syllabus-24sp/">here</a>.</p>
+<p>Special note on doubling counting CS4414/6456: </p>
+<ul>
+<li>
+<p>It is OK: if you have taken my CS4414 prior to Spring 2025 and is taking CS6456 in Spring 2025. 
+The two courses are different enough. </p>
+</li>
+<li>
+<p>It is NOT OK: if you take my CS4414 as an undergraduate in Spring 2025 and take my CS6456 again in 2026/2027/2028 as a graduate student. </p>
+</li>
+</ul>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#schedule">SCHEDULE</a></li>
+<li><a href="#first-things-first">FIRST THINGS FIRST</a><ul>
+<li><a href="#attitude">Attitude</a></li>
+<li><a href="#prerequisite">Prerequisite</a></li>
+<li><a href="#code-safety">Code safety</a></li>
+</ul>
+</li>
+<li><a href="#logistics">LOGISTICS</a><ul>
+<li><a href="#instruction-team">Instruction team</a></li>
+<li><a href="#requirements-for-graduate-students">Requirements for CS6456 students?</a></li>
+<li><a href="#work-individually-or-as-teams">Work individually or as teams?</a></li>
+<li><a href="#can-i-use-genai">Can I use GenAI?</a></li>
+<li><a href="#textbook---none">Textbook - None</a></li>
+</ul>
+</li>
+<li><a href="#equipment">EQUIPMENT</a><ul>
+<li><a href="#emulator-or-real-hardware">Emulator or real hardware?</a></li>
+<li><a href="#dev-machines">Dev machines</a></li>
+<li><a href="#rpi3">Rpi3</a></li>
+</ul>
+</li>
+<li><a href="#submissions">SUBMISSIONS</a></li>
+<li><a href="#grading">GRADING</a><ul>
+<li><a href="#how-i-measure-participation">How I measure participation</a></li>
+<li><a href="#how-i-determine-the-final-grades">How I determine the final grades</a></li>
+</ul>
+</li>
+<li><a href="#help">HELP!</a><ul>
+<li><a href="#response-time">Response time</a></li>
+</ul>
+</li>
+<li><a href="#policies">POLICIES</a><ul>
+<li><a href="#honor">Honor</a></li>
+<li><a href="#whiteboard-only-collaboration">Whiteboard only collaboration</a></li>
+<li><a href="#disabilities">Disabilities</a></li>
+<li><a href="#your-wellbeing">Your wellbeing</a></li>
+<li><a href="#diversity">Diversity</a></li>
+<li><a href="#religious-accommodations">Religious accommodations</a></li>
+<li><a href="#power-based-personal-violence">Power-based personal violence</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="schedule">SCHEDULE</h2>
+<p><img alt="schedule-1 16 25" src="https://github.com/user-attachments/assets/14c49bd1-8865-4bc9-a260-8f652591b5b7" /></p>
+<h2 id="first-things-first">FIRST THINGS FIRST</h2>
+<h3 id="attitude">Attitude</h3>
+<p>Read this <a href="../faq/">FAQ</a> before proceeding. </p>
+<h3 id="prerequisite">Prerequisite</h3>
+<p>This course assumes the following prerequisites:</p>
+<ul>
+<li>
+<p><strong>CS2130 (CSO1, <a href="https://researcher111.github.io/uva-cso1-F23-DG/">sample</a>):</strong></p>
+<ul>
+<li>C programming</li>
+<li>Assembly language (some), including converting C to assembly</li>
+<li>Command line usage, handling arguments</li>
+<li>Hexadecimal representation, data representation in memory (big/little endian)</li>
+<li>GDB (or LLDB)</li>
+<li>Using libc</li>
+</ul>
+</li>
+<li>
+<p><strong>CS3130 (CSO2, <a href="https://www.cs.virginia.edu/~cr4bd/3130/F2024/">sample</a>):</strong></p>
+<ul>
+<li>Concepts: IRQ, virtual memory, cache, CPU, concurrency &amp; synchronization</li>
+<li>Labs: Makefile usage, shell scripting, process virtual memory observation, demand paging observation</li>
+<li>Page table manipulation (simulation of multi-level page table)</li>
+<li>User-level synchronization, TLB toy application (emulated), pthreads, dining philosophers problem</li>
+<li>Application: "Life" emulation</li>
+</ul>
+</li>
+</ul>
+<p><strong>Important Note for Incoming Students</strong></p>
+<p>All incoming students should thoroughly understand the above contents. Exemptions may be granted on a case-by-case basis, particularly for graduate students who have not taken UVA undergraduate courses. However, students must be aware of the risks and be prepared to invest a significant amount of time to catch up.</p>
+<h3 id="do-not-share-your-code-publicly">Do not share your code publicly</h3>
+<p>Keep your code to yourself; if it is a github repository, make it private. </p>
+<p>This applies to the duration of the semester, and AFTER the semester. </p>
+<p>Making the code public could ruin the experience of future students; it also compromises the instructor's effort on designing the quests. </p>
+<p>PLEASE DO NOT SHARE YOUR CODE PUBLICLY!</p>
+<h3 id="code-safety">Code safety</h3>
+<p><u>
+It is the students' sole responsibility to keep their code safe. 
+Accidental loss of code is not an excuse for late submission.
+</u> </p>
+<p><strong>Back up your code regularly</strong>. Like, every hour. </p>
+<p><strong>Back up to multiple places</strong> including cloud storage your local machines. This is because you may accidentally delete your code, the servers may crash, disks may malfunction, etc. Always assume that the storage is unreliable. </p>
+<p><strong>Know basic git commands</strong>. Git is prerequisite of this course and modern software development. For instance, when told to do ``git pull'', be prepared to avoid or handle possible local conflicts. Do not blame anyone for conflicts. </p>
+<h2 id="logistics">LOGISTICS</h2>
+<p>Tue/Thu (01/14/2025 to 04/29/2025) , 12:30 PM - 01:45 PM, OLS 011</p>
+<p>Zoom/recordings will be available</p>
+<h3 id="instruction-team">Instruction team</h3>
+<p><strong>Instructor</strong></p>
+<ul>
+<li>Prof. Felix Lin               xl6yq@virginia.edu</li>
+</ul>
+<p><strong>TAs (updated 1/15/25)</strong> </p>
+<ul>
+<li>Wonkyo Choe (PhD student)             bfr4xr@</li>
+<li>Rongxiang Wang (PhD student)          waq9hw@</li>
+<li>Afsara Benazir (PhD student)          hys4qm@</li>
+</ul>
+<p><strong>Office hours (updated 1/15/25)</strong></p>
+<p>Location: Rice 442</p>
+<ul>
+<li>Mon   4-5p</li>
+<li>Tue   10-11a</li>
+<li>Thu   2-3p </li>
+<li>
+<p>Thu  4-5p            </p>
+</li>
+<li>
+<p>The TAs will: answer questions; give suggestions on your code; offer debugging pointers</p>
+</li>
+<li>The TAs will not: write or debug your code for you </li>
+</ul>
+<h3 id="requirements-for-cs6456-students">Requirements for CS6456 students?</h3>
+<p>This course may be crosslisted as CS6456. </p>
+<p>In addition to a submission per the lab description, a CS6456 student must submit:</p>
+<ul>
+<li>a one-page writeup for each lab sumission, summarizing the key design decisions, challenges, and lessons learned.</li>
+</ul>
+<p>The writeup must be submitted as part of the submission. </p>
+<p>The writeup constitutes 10% of the lab grade for CS6456 students. </p>
+<h3 id="work-individually-or-as-teams">Work individually or as teams?</h3>
+<p>Lab 1--3 are individual work. Lab 4--5 are team work.</p>
+<p>Each team: 2 students. 3-student teams are only approved as exceptions and will be held against a higher bar for grading. 
+CS4414 and CS6456 students shall NOT form a team (because they have different grading criteria).</p>
+<p>Exceptions to the above rules may be discussed with the instructors. </p>
+<h3 id="can-i-use-genai">Can I use GenAI?</h3>
+<p>Yes, the instructor believes that GenAI (such as ChatGPT and Copilot) is transforming how we write code and freeing us from memorizing low-level hardware/software details. Therefore:</p>
+<ul>
+<li>You are encouraged to use Copilot to generate code snippets. You must clearly state in your submission what information is from Copilot and how it is used.</li>
+<li>Be warned: GenAI can produce code with subtle bugs that are difficult to debug.</li>
+<li>Programming quests: The instructor expects students to use GenAI.
+The instructor hence designed these tasks more challenging than traditional ones without GenAI (e.g., writing assembly code for manipulating the stack frame).</li>
+<li>Tooling/scripting tasks: for tasks such as using GDB, diff, and git, the instructor expects students to ask GenAI for help.
+ChatGPT is fantastic in explaining how to use these tools.</li>
+</ul>
+<p>Therefore, the project descriptions often say "Use AI" to encourage its use. But in general, you can use it in any way you find helpful.</p>
+<h3 id="textbook-none">Textbook - None</h3>
+<p>There is no official textbook. If you insist on having one:
+Operating Systems: Three Easy Pieces, Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau </p>
+<h2 id="equipment">EQUIPMENT</h2>
+<h2 id="emulator-or-real-hardware">Emulator or real hardware?</h2>
+<p>All the code can run on both the emulator (QEMU) and real hardware (Raspberry Pi 3, or rpi3).</p>
+<p>The expectation is that students will start with the emulator and gradually migrate to testing their code on both the emulator and real hardware.</p>
+<p>Students shall buy rpi3 ($35) at own expense. The instructor will provide all other needed accessories, on a need basis.</p>
+<p>Assignments early in the semester can be done with full credits using QEMU. 
+Assignments later in the semester can be done with QEMU for partial credits, and with rpi3 for full credits.</p>
+<h3 id="dev-machines">Dev machines</h3>
+<p>Use your own computers. 
+Windows/Linux is preferred as they are our test platforms; Mac also work but may have technical issues. 
+The instruction team is committted to support Mac.
+You can get a loaner Windows laptop from the CS IT, if needed. </p>
+<h3 id="rpi3">Rpi3</h3>
+<p>If you choose to do the assignments on real hardware, you will need a Raspberry Pi 3. You must buy it yourself with $35. </p>
+<p>We will provide all other needed accessories, on a need basis: 
+- UART cable for debugging
+- SD card and reader
+- External display and HDMI cable
+- Power supply
+- USB keyboard
+- Waveshare Game HAT for rpi3</p>
+<h2 id="submissions">SUBMISSIONS</h2>
+<p>Submissions are done via the UVA LMS. Submission will be closed after the deadline. </p>
+<p><strong>Repeated submissions.</strong> Before the deadline, submit as many times as you like. Earlier submissions will be overwritten. </p>
+<p>Sumit often; submit early. </p>
+<p><strong>Late submissions.</strong> Once the submission deadline has passed: do NOT try to submit; do NOT email the instructor or the TAs. 
+Such emails will be automatically ignored. All submissions are due <strong>at 5pm</strong>. <strong>NOT the midnight</strong>. </p>
+<!----
+**Use of diff files**. Some submissions may ask you to submit a diff file, which may be generated by the "diff" or "git-diff" commands (detailed instructions will be provided). 
+
+* The point of submitting a diff file -- allows the TAs to quickly spot what you have done
+* A diff file is a textual file, which is supposed to contain all code changes made by you. Please always manually inspect the diff file prior to submission. 
+* If your diff file is super large (>100KB), it is likely because of the line ending issue: the diff file mistakenly includes conceptually identical lines that only differ in line ending characters (CRLF vs LF). Please do submit such a large diff file. Fix the problem. You can easily find solution via Piazza, Google, or ChatGPT. 
+* Do not wait until the last minute to learn diff and git-diff, which may surprise you.   
+* If you fear that git-diff (and any other git commands) will mess up your local code, you can always make a copy of the whole project directory and run the git commands on that copy
+--->
+
+<p><strong>Submission instructions.</strong></p>
+<p>https://github.com/fxlin/uva-os-world1/blob/student/docs/submission.md</p>
+<h2 id="grading">GRADING</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lab 1</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Lab 2</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Lab 3</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Lab 4</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Lab 5</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Participation</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-i-measure-participation">How I measure participation</h3>
+<p>The factors we consider include, but not limited to the following: 
+•   Classroom attendance 
+•   OH attendance (with TAs or instructor)
+•   Online discussion 
+We expect a student to participate in some of the above activities (not necessarily all). </p>
+<p><strong>Do NOT ask for our formula</strong> on how we calculate the participation points – as it is difficult to figure out one to cover all the above factors. You will need to trust that the instructor will give fair participation points. If you disagree with your participation points after the grade is out, talk to the instructor. </p>
+<h3 id="how-do-bonus-points-affect-my-grade">How do bonus points affect my grade?</h3>
+<p>Each lab has some bonus points, which only contribute to that lab, not other labs. </p>
+<p>If full credit was not achieved on a previous lab, do bonus points achieved in a later lab have any effect in raising that previous labs score? - No</p>
+<p>Bonus points beyond 100% will be considered for A+, which I only give to a few students per year. </p>
+<p>If a student happens to be on the boundary of A/A- (or B/B-), yes bonus points will help. </p>
+<p>Overall, my principles are: </p>
+<ul>
+<li>
+<p>I appreciate students doing extra bonus points </p>
+</li>
+<li>
+<p>I want to set a clear expectation up front (e.g. what is needed to get a "A"), rather than having students doing as much bonus as possible.</p>
+</li>
+</ul>
+<h3 id="how-i-determine-the-final-grades">How I determine the final grades</h3>
+<p>https://fxlin.github.io/final-grades.pdf</p>
+<h2 id="help">HELP!</h2>
+<p>Use Piazza linked in the Canvas page. </p>
+<h3 id="response-time">Response time</h3>
+<p><strong>The instruction team is committed to response Piazza questions:</strong> </p>
+<ul>
+<li>
+<p>During business hours (8a-5p): &lt; 2 hours</p>
+</li>
+<li>
+<p>Out of business hours, on days when UVA is open: next day</p>
+</li>
+<li>Weekends, UVA holidays: no guarantee, with best efforts</li>
+</ul>
+<p>The response time is independent of any upcoming deadline. </p>
+<p><strong>Note:</strong> Raise questions well before the deadlines. Do NOT expect a faster response just because it's right before the deadline. </p>
+<h2 id="policies">POLICIES</h2>
+<h3 id="honor">Honor</h3>
+<p>I trust every student in this course to fully comply with all of the provisions of the University’s Honor Code. By enrolling in this course, you have agreed to abide by and uphold the Honor System of the University of Virginia. </p>
+<h3 id="whiteboard-only-collaboration">Whiteboard only collaboration</h3>
+<p>is meant to convey the type of discussion where participants gather around a whiteboard to solve a problem together, without taking any notes from their discussion, and then erasing the whiteboard before they disperse.</p>
+<p>In particular, you may discuss problems and solutions, but the only thing you may take away from your discussion is your brain. This means you may not produce any records or artifacts from your collaborations, including: notes, screenshots, photos, figures, audio/video recordings, documents (inluding google docs), links, or any other digital or tangible thing. Nor may you share any files, links, etc. with other students outside of a collaboration session. Any substantially similar expression of the same solution can only occur if collaboration extends beyond whiteboard only, and so will be considered as evidence of a policy violation.</p>
+<p>In your submission, please clearly state the students you had discussion with. </p>
+<p><em>(adopted from policy by Dr. Nathan Brunelle for DSA2, under CC-BY-NC-SA 4.0)</em></p>
+<h3 id="disabilities">Disabilities</h3>
+<p>The University of Virginia strives to provide accessibility to all students. If you require an accommodation to fully access this course, please contact the Student Disability Access Center (SDAC) at (434) 243-5180 or <a href="mailto:sdac@virginia.edu">sdac@virginia.edu</a>. If you are unsure if you require an accommodation, or to learn more about their services, you may contact the SDAC at the number above or by visiting their website at http://studenthealth.virginia.edu/student-disability-access-center/faculty-staff. </p>
+<h3 id="your-wellbeing">Your wellbeing</h3>
+<p>The Computer Science Department and SEAS aims to promote their students’ wellbeing. If you are feeling overwhelmed, stressed, or isolated, there are many individuals here who are ready and wanting to help. If you wish, you can make an appointment with me and come to my office to talk in private. </p>
+<p>Alternatively, there are also other University of Virginia resources available. The Student Health Center offers Counseling and Psychological Services (CAPS) for its students. Call 434-243-5150 or 434-972-7004 for after hours and weekend crisis assistance) to get started and schedule an appointment. If you prefer to speak anonymously and confidentially over the phone, call Madison House’s HELP Line at any hour of any day: 434-295-8255. </p>
+<p>If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women’s Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774. </p>
+<h3 id="diversity">Diversity</h3>
+<p>It is the instructors’ intent that students from all diverse backgrounds and perspectives be well served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that students bring to this class be viewed as a resource, strength and benefit. It is my intent to present materials and activities that are respectful of diversity: gender, sexuality, disability, age, socioeconomic status, ethnicity, race, and culture. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally or for other students or student groups. </p>
+<h3 id="religious-accommodations">Religious accommodations</h3>
+<p>It is the University’s long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements. Students who wish to request academic accommodation for a religious observance should submit their request in writing directly to me by email as far in advance as possible. Students and instructors who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the University’s Office for Equal Opportunity and Civil Rights (EOCR) at <a href="mailto:UVAEOCR@virginia.edu">UVAEOCR@virginia.edu</a> or 434-924-3200. Accommodations do not relieve you of the responsibility for completion of any part of the coursework missed as the result of a religious observance. </p>
+<h3 id="power-based-personal-violence">Power-based personal violence</h3>
+<p>The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. To that end, it is vital that you know two values that I and the University hold as critically important: </p>
+<ol>
+<li>Power-based personal violence will not be tolerated. </li>
+<li>Everyone has a responsibility to do their part to maintain a safe community on Grounds. </li>
+</ol>
+<p>If you or someone you know has been affected by power-based personal violence, more information can be found on the UVA Sexual Violence website that describes reporting options and resources available - <a href="http://www.virginia.edu/sexualviolence">www.virginia.edu/sexualviolence</a>. </p>
+<p>As your professor and as a person, know that I care about you and your well-being and stand ready to provide support and resources as I can. As a faculty member, I am a responsible employee, which means that I am required by University policy and federal law to report what you tell me to the University's Title IX Coordinator. The Title IX Coordinator's job is to ensure that the reporting student receives the resources and support that they need, while also reviewing the information presented to determine whether further action is necessary to ensure survivor safety and the safety of the University community. If you would rather keep this information confidential, there are Confidential Employees you can talk to on Grounds (See http://www.virginia.edu/justreportit/confidential_resources.pdf). The worst possible situation would be for you or your friend to remain silent when there are so many here willing and able to help. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
