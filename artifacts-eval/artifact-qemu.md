@@ -28,7 +28,7 @@ KERNEL=kernel-artifacts/kernel8-rpi3qemu-donuttext.img ./run-rpi3qemu.sh
 **How to build from source:**
 ```sh
 cd ~/p1-kernel-lab1
-# Uncomment donut_text() in kernel.c kernel_main()
+# In kernel/kernel.c, function kernel_main(), uncomment the function call to donut_text()
 export PLAT=rpi3qemu
 ./cleanall.sh
 ./makeall.sh
@@ -47,7 +47,7 @@ KERNEL=kernel-artifacts/kernel8-rpi3qemu-donutpixel.img ./run-rpi3qemu.sh
 
 ```sh
 cd ~/p1-kernel-lab1
-# Uncomment `donut();` in `kernel.c kernel_main()`
+# In kernel/kernel.c, function kernel_main(), uncomment the function call to donut()
 export PLAT=rpi3qemu
 ./cleanall.sh
 ./makeall.sh
@@ -133,10 +133,9 @@ KERNEL=kernel-artifacts/kernel8-rpi3qemu-consolefb.img ./run-rpi3qemu.sh
 
 See 1.2.2. Before compiling: 
 
-- From the code, uncomment `KCONSOLE_PRINTF` (param.h).
-- Optionally for QEMU, enlarge the initial framebuffer so the console has a larger size. Go to `fb_strcut the_fb`, uncomment larger initial fb sizes (width/height/vwidth/vheight) for QEMU build (`PLAT_RPI3QEMU`). No need to change for rpi3 build.
-
-
+- From the code, uncomment `KCONSOLE_PRINTF` (kernel/param.h).
+- (Optional): for QEMU, one may enlarge the initial framebuffer so the console has a larger size.
+	- Go to `fb_struct the_fb` (in kernel/mbox.c), uncomment larger initial fb sizes (width/height/vwidth/vheight) for QEMU build (`PLAT_RPI3QEMU`). No need to change for rpi3 build.
 
 ## 1.5 Slider
 
