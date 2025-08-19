@@ -1,0 +1,801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Setup the raspi3 hardware - cs4414-main</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-red" data-md-color-accent="deep-red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setup-the-raspi3-hardware" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="cs4414-main" class="md-header__button md-logo" aria-label="cs4414-main" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cs4414-main
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup the raspi3 hardware
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Syllabus
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="cs4414-main" class="md-nav__button md-logo" aria-label="cs4414-main" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    cs4414-main
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-check-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Check list
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-prepare-sd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Prepare SD card
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-connect-the-uart-cable" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Connect the UART cable
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Connect the UART cable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-the-legacy-dongle-for-vm-users-not-for-wsl2-or-native-win10-due-to-driver-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-newer-sh-v09c5-dongle-for-wsl2-or-vm-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 The newer (SH-V09C5) dongle (for WSL2 or VM users)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-an-example-setup-of-macbook-pro-which-uses-usba-usbc-adapter-for-the-uart-dongle-note-that-hdmi-is-yet-to-be-connected" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle. Note that HDMI is yet to be connected.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vmlinux-users-configure-the-serial-emulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. VM/Linux users: Configure the serial emulator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. VM/Linux users: Configure the serial emulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pass-through-the-sd-card-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Pass through the SD card reader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-pass-through-the-usb-uart-dongle" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Pass through the USB-UART dongle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-configure-minicom-via-its-config-file-already-done-for-vm-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Configure minicom via its config file (already done for VM users)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-launch-minicom" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Launch minicom
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-wsl2-users-configure-the-serial-emulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. WSL2 users: Configure the serial emulator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-power-up-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Power up &amp; test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-build-and-install-your-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Build and install your kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-gamehat-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. GAMEHAT setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-minicom-configuration-via-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix -- minicom configuration via GUI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix -- minicom configuration via GUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-minicom-serial-port-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.1 Minicom serial port settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-minicom-terminal-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.2 Minicom terminal settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="setup-the-raspi3-hardware">Setup the raspi3 hardware</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-check-list">Check list</a></li>
+<li><a href="#2-prepare-sd-card">Prepare SD card</a></li>
+<li><a href="#3-connect-the-uart-cable">Connect the UART cable</a><ol>
+<li><a href="#31-the-legacy-dongle-for-vm-users-not-for-wsl2-or-native-win10-due-to-driver-issues">The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues)</a></li>
+<li><a href="#32-the-newer-sh-v09c5-dongle-for-wsl2-or-vm-users">The newer (SH-V09C5) dongle (for WSL2 or VM users)</a></li>
+<li><a href="#33-an-example-setup-of-macbook-pro-which-uses-usba-usbc-adapter-for-the-uart-dongle">An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle</a></li>
+</ol>
+</li>
+<li><a href="#4-vmlinux-users-configure-the-serial-emulator">VM/Linux users: Configure the serial emulator</a><ol>
+<li><a href="#41-pass-through-the-sd-card-reader">Pass through the SD card reader</a></li>
+<li><a href="#42-pass-through-the-usb-uart-dongle">Pass through the USB-UART dongle</a></li>
+<li><a href="#43-configure-minicom-via-its-config-file-already-done-for-vm-users">Configure minicom via its config file (already done for VM users)</a></li>
+<li><a href="#44-launch-minicom">Launch minicom</a></li>
+</ol>
+</li>
+<li><a href="#5-wsl2-users-configure-the-serial-emulator">WSL2 users: Configure the serial emulator</a></li>
+<li><a href="#6-power-up--test">Power up &amp; test</a></li>
+<li><a href="#7-build-and-install-your-kernel">Build and install your kernel</a></li>
+<li><a href="#8-gamehat-setup">GAMEHAT setup</a></li>
+<li><a href="#appendix--minicom-configuration-via-gui">Appendix -- minicom configuration via GUI</a><ol>
+<li><a href="#a1-minicom-serial-port-settings">Minicom serial port settings</a></li>
+<li><a href="#a2-minicom-terminal-settings">Minicom terminal settings</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="1-check-list">1. Check list</h2>
+<p>Students buy:
+| Item                                | Provided By | Notes                                                                 |
+|-------------------------------------|-------------|-----------------------------------------------------------------------|
+| Rpi3 board (Model B or B+)          | Student     | <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">link</a>  |</p>
+<p>Loaner instructions for students:
+1. students specify which of the following items are needed. NB: for lab1--3, only item 1--5 are in use.
+2. if you need item 1, specify: are you using WSL2 or VM
+3. contact: Afsara Benazir (TA) hys4qm@
+4. Hardware-kit pickup spreadsheet (mark AFTER the pickup) <a href="https://myuva.sharepoint.com/:x:/s/XSEL-afsara-next/EdYnzYErdZ1AnqmaAjGY2_QBQWsVQ2lCzCud1rGTHytnIQ?e=k0St0w">link</a>
+5. keep any package and cables that come with items (esp item 4 the display), and return the item in its original package. </p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Needed for</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. A USB-UART dongle</td>
+<td>Lab1 &amp; later</td>
+<td>WSL2 users: SH-V09C5. VM users: legacy FTDI dongles</td>
+</tr>
+<tr>
+<td>2. A micro SD card (&gt;=16GB)</td>
+<td>Lab1 &amp; later</td>
+<td></td>
+</tr>
+<tr>
+<td>3. A micro SD card reader that plugs in to personal computers</td>
+<td>Lab1 &amp; later</td>
+<td>the loaner reader is USB-A, not USB-C. Update: On Mac, built-in SD reader cannot be passed through to VMfusion. Use a USB reader instead. ~~If your laptop lacks USB-A ports (e.g. a recent Macbook Pro), chances are that it has a built-in SD slot already; you just need a cheap microSD-SD adapter (no SD card reader needed) which TAs can provide~~</td>
+</tr>
+<tr>
+<td>4. A display w/ HDMI + an HDMI cable</td>
+<td>Lab1 &amp; later</td>
+<td>The loaner display comes with the needed HDMI-microHDMI cable &amp; USB-C power supply</td>
+</tr>
+<tr>
+<td>5. A power supply for rpi3 (Micro USB, 5v3A, with inline switch)</td>
+<td>Lab1 &amp; later</td>
+<td>In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger). That should suffice for lab1/2 which do not draw high power. For later labs, better use 5v3A charger to provide enough power</td>
+</tr>
+<tr>
+<td>6. USB keyboard</td>
+<td>Lab4 &amp; later</td>
+<td></td>
+</tr>
+<tr>
+<td>7. Waveshare GAME HAT</td>
+<td>Lab5+</td>
+<td></td>
+</tr>
+<tr>
+<td>- Battery  (18650 lithium)</td>
+<td></td>
+<td>can be charged in place</td>
+</tr>
+<tr>
+<td>- HDMI cable</td>
+<td></td>
+<td>for debugging with an external display</td>
+</tr>
+<tr>
+<td>- 40pin header extender, angled</td>
+<td></td>
+<td>for debugging by exposing its UART port</td>
+</tr>
+<tr>
+<td>- Speaker</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-prepare-sd-card">2. Prepare SD card</h2>
+<p>Assume that you have finished setting up VM <a href="../../vm/vmware/">here</a>. </p>
+<p>Connect the SD card reader to VM. Then in the VM: </p>
+<pre><code>cd uva-os-main/make-sd/ 
+sudo ./make-sd.sh /dev/sdX
+</code></pre>
+<p>Details here: <a href="../../make-sd/README-make-sd.md">How to prepare SD cards for experiments</a></p>
+<h2 id="3-connect-the-uart-cable">3. Connect the UART cable</h2>
+<pre><code>Rpi3 &lt;-- a USB-UART dongle ---&gt; PC (running a terminal emulator) 
+</code></pre>
+<p>After you get a serial cable, you need to make the connection. </p>
+<h3 id="31-the-legacy-dongle-for-vm-users-not-for-wsl2-or-native-win10-due-to-driver-issues">3.1 The legacy dongle (for VM users; not for WSL2 or native Win10 due to driver issues)</h3>
+<p><img alt="" src="https://cdn-learn.adafruit.com/assets/assets/000/035/695/small360/learn_raspberry_pi_piconsole_bb.png?1473736644" /></p>
+<h3 id="32-the-newer-sh-v09c5-dongle-for-wsl2-or-vm-users">3.2 The newer (SH-V09C5) dongle (for WSL2 or VM users)</h3>
+<p><img alt="alt text" src="../image.png" /></p>
+<h3 id="33-an-example-setup-of-macbook-pro-which-uses-usba-usbc-adapter-for-the-uart-dongle-note-that-hdmi-is-yet-to-be-connected">3.3 An example setup of Macbook Pro, which uses USBA-USBC adapter for the UART dongle. Note that HDMI is yet to be connected.</h3>
+<p><img alt="image" src="https://github.com/user-attachments/assets/2b2dd91b-a9b3-46d6-b516-0a42f4f89558" /></p>
+<h2 id="4-vmlinux-users-configure-the-serial-emulator">4. VM/Linux users: Configure the serial emulator</h2>
+<p>Assume that you have finished setting up VM <a href="../../vm/vmware/">here</a></p>
+<p><strong>Notes on pass through USB devices</strong> </p>
+<ul>
+<li>on some laptops (e.g. Macbook Pro), the built-in SD card readers cannot be passed through to VM. If that happens, use the USB card reader instead. </li>
+<li>if you have a complex USB topology (e.g. the target USB device connected to a hub, which then connects to a dock, which connects to your computer), the 
+VM may not be able to recognize the USB device. 
+In that case, directly connect the USB device to a USB port on your computer </li>
+<li>if your laptop lacks USB-A ports, use a USBA-USBC adapter (often &lt;$2) which the TA should be able to give you one.</li>
+</ul>
+<h3 id="41-pass-through-the-sd-card-reader">4.1 Pass through the SD card reader</h3>
+<p>Often, when you plug in an SD card reader, there's a pop-up asking if you want to connect it to the VM. 
+Say yes. 
+If not, you can manually connect it.</p>
+<p>Example screenshot on Windows (Mac has a similar interface): </p>
+<p><img alt="alt text" src="../sd%20card%20reader.jpg" /></p>
+<p>Once passed through, the VM (Ubuntu) should automatically recognize the SD card partitions (check the taskbar on the left), 
+and automatically mount the partitions as 
+<code>/media/student/bootfs</code> and <code>/media/student/UVA-OS/</code></p>
+<h3 id="42-pass-through-the-usb-uart-dongle">4.2 Pass through the USB-UART dongle</h3>
+<p>In the same way: </p>
+<p><img alt="alt text" src="../vmplayer%20usb%20icon.jpg" /></p>
+<p>And confirm it: </p>
+<p><img alt="alt text" src="../vm%20usb%20choice.jpg" /></p>
+<p>On Mac, it's similar:</p>
+<p><img alt="Screenshot 2025-01-30 at 7 28 07 PM" src="https://github.com/user-attachments/assets/55dba7f0-8ad8-4ea2-ad47-5718c1d6f250" /></p>
+<p>After that, do <code>sudo dmesg</code> from the VM terminal. Look for things like: </p>
+<p><img alt="alt text" src="../usb%20serial%20dmsg.jpg" /></p>
+<p>Here, the messages show that the USB-UART dongle is recognized as <code>/dev/ttyUSB0</code>.</p>
+<p>A common error (shown below) is that the USB-UART dongle malfunctions. 
+In such a case, unplug the dongle, wait a few seconds, and plug it back in. 
+Then check <code>dmesg</code> again. If the problem persists, ask for a replacement dongle.
+<img alt="alt text" src="../image-1.png" /></p>
+<h3 id="43-configure-minicom-via-its-config-file-already-done-for-vm-users">4.3 Configure minicom via its config file (already done for VM users)</h3>
+<p>create the configure file, if it does not exist</p>
+<pre><code>sudo gedit /etc/minicom/minirc.dfl
+</code></pre>
+<p>And enter the following contents</p>
+<pre><code>pu port             /dev/ttyUSB0
+pu baudrate        115200
+pu bits            8
+pu parity          N
+pu stopbits        1
+pu rtscts          No
+pu addcarreturn  Yes
+</code></pre>
+<p>Save the file. </p>
+<h3 id="44-launch-minicom">4.4 Launch minicom</h3>
+<p>From the VM command line: </p>
+<pre><code>sudo minicom -b 115200 -o -D /dev/ttyUSB0 -C /tmp/minicom.log
+</code></pre>
+<p>Warning: your OS may give different names to the USB-UART dongle, e.g. /dev/ttyUSB1. Find it out by looking at <code>dmesg</code> output above. </p>
+<p>Some students report brltty service interfere the uart setup. You can check if the service is inactive like the screenshot shown below.</p>
+<p><img alt="alt text" src="https://github.com/fxlin/uva-os-main/blob/main/docs/rpi3/image-9.png?raw=true" /></p>
+<p>Some students report brltty service interfere the uart setup. You can check if the service is inactive like the screenshot shown below.</p>
+<p><img alt="alt text" src="https://github.com/fxlin/uva-os-main/blob/main/docs/rpi3/image-9.png?raw=true" /></p>
+<h2 id="5-wsl2-users-configure-the-serial-emulator">5. WSL2 users: Configure the serial emulator</h2>
+<p>PuTTY recommended. A sample configuration below. </p>
+<p><img alt="image-20210210120642726" src="../image-20210210120642726.png" /></p>
+<p>Change the terminal settings like this:</p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<p>Note: your PC may give different names to the USB-UART dongle, e.g. COM4. Find it out by looking at Windows Device Manager. </p>
+<h2 id="6-power-up-test">6. Power up &amp; test</h2>
+<p>Use a microUSB power supply rated at 5V3A or higher. 
+In a pinch, rpi3 can be powered via a microUSB cable connected to any USB-A port (e.g. from your PC, or any cheap USB charger, often rated 5V1A). That should suffice for lab1/2 which do not draw high power. 
+For later labs, better use 5v3A charger to provide enough power. </p>
+<p>If everything works OK, the provided "test" kernel (<code>make-sd/bootfs/kernel8-rpi3.img</code>, md5sum 074d1c0bae0a3572bc302d8f3d017a97) will boot and show on the UART: </p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/d6e1f4a1-5f8b-4061-add5-51ef65eb627f" /></p>
+<p>To test the display, try <code>make-sd/bootfs/kernel8-rpi3-display.img</code> (to use it, rename this file to kernel8-rpi3.img on SD card and reboot rpi3).
+it will cycle through four colors on display:</p>
+<p>https://github.com/user-attachments/assets/194a12e3-30f1-481e-9378-114059aae0f9</p>
+<h2 id="7-build-and-install-your-kernel">7. Build and install your kernel</h2>
+<pre><code>cd uva-os-world1
+export PLAT=rpi3
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To clean up</td>
+<td><code>./cleanall.sh</code></td>
+</tr>
+<tr>
+<td>To build everything</td>
+<td><code>./makeall.sh</code></td>
+</tr>
+</tbody>
+</table>
+<p>If everything builds OK, <code>kernel/Makefile</code> should copy the kernel image (kernel8-rpi3.img) to the SD card, in the "bootfs" partition. See <code>kernel/Makefile</code> for details.</p>
+<h2 id="8-gamehat-setup">8. GAMEHAT setup</h2>
+<p>Follow the Waveshare website instructions to assemble it. LEAVE THE back cover off. Plug in the speaker for sound. Insert SD card and power up.</p>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<p>However the UART pins are blocked. To access it for debugging: </p>
+<p>Connect the 40pin header extender to the Rpi3. The connect the serial cable to the extender.</p>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<p>Put Rpi3 back on</p>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<p>Connect the display to the Rpi3 via a HDMI cable (the hard HDMI connector that comes with the gamehat is too short -- not used).</p>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<h2 id="appendix-minicom-configuration-via-gui">Appendix -- minicom configuration via GUI</h2>
+<h3 id="a1-minicom-serial-port-settings">A.1 Minicom serial port settings</h3>
+<p>Press Ctrl-A then O to enter "configuration" </p>
+<p><img alt="alt text" src="../minicom%20settings.jpg" /></p>
+<h3 id="a2-minicom-terminal-settings">A.2 Minicom terminal settings</h3>
+<p>(Note: T - Add carriage return : Yes) </p>
+<p><img alt="alt text" src="../minicom%20cr%20line.jpg" /></p>
+<p><a href="#setup-the-raspi3-hardware">Back to top</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
