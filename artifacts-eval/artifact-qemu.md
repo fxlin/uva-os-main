@@ -100,6 +100,10 @@ KERNEL=kernel-artifacts/kernel8-rpi3qemu-console.img ./run-rpi3qemu.sh
 **How to build from source:**
 ```sh
 cd ~/p1-kernel-lab5
+# backup the old initrc
+mv usr/initrc.txt "usr/initrc-$(date +%Y%m%d-%H%M%S).txt"
+# create an empty one
+touch usr/initrc.txt
 export PLAT=rpi3qemu
 ./cleanall.sh
 ./makeall.sh
